@@ -21,9 +21,9 @@ CMDLINE = OptionParser.new do |opts|
 end
 
 CMDLINE.parse!(ARGV)
-if ARGV.length > 0 && !@interactive
-  puts "You must specify a file to run when in script mode"
-  exit(1)
+# Go into a repl if no file is specified.
+if ARGV.length == 0; then
+  @interactive = true
 end
 
 JARS = %w( jline jna clojure clojure-contrib )
