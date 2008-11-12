@@ -7,6 +7,9 @@
 	<key>command</key>
 	<string>#!/bin/bash
 
+[[ -z "$TM_CLJ" ]] &amp;&amp; TM_CLJ=`which clj`
+[[ -z "$TM_CLJ" ]] &amp;&amp; TM_CLJ="$TM_BUNDLE_SUPPORT/../Vendor/clj"
+
 esc () {
 STR="$1" ruby &lt;&lt;"RUBY"
    str = ENV['STR']
@@ -20,7 +23,7 @@ osascript &lt;&lt;- APPLESCRIPT
 	tell app "Terminal"
 	    launch
 	    activate
-	    do script "clear; cd $(esc "${TM_DIRECTORY}"); clojure &amp;&amp; exit"
+	    do script "clear; cd $(esc "${TM_DIRECTORY}"); '$TM_CLJ' &amp;&amp; exit"
 	    set position of first window to { 100, 100 }
 	end tell
 APPLESCRIPT
@@ -31,7 +34,7 @@ APPLESCRIPT
 	<key>keyEquivalent</key>
 	<string>^o</string>
 	<key>name</key>
-	<string>Clojure prompt</string>
+	<string>Clojure REPL</string>
 	<key>output</key>
 	<string>discard</string>
 	<key>scope</key>
