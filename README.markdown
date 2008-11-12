@@ -1,7 +1,10 @@
+# Clojure.tmbundle
+
 ## Prerequisites
 
 The Clojure bundle depends on the following external utilities to work:
 
+* bash
 * ruby
 * osascript
 
@@ -11,14 +14,15 @@ Additionally, if clj is not found on your Textmate's PATH, then it will use the 
 
 ## Installation
 
-* Run this:
+Run this:
  
-<pre>
-cd ~/Library/Application\ Support/TextMate/Bundles
-git clone git://github.com/stephenroller/clojure-tmbundle.git Clojure.tmbundle
-osascript -e 'tell app "TextMate" to reload bundles'
-</pre>
+	$ cd ~/Library/Application\ Support/TextMate/Bundles
+	$ git clone git://github.com/stephenroller/clojure-tmbundle.git Clojure.tmbundle
+	$ osascript -e 'tell app "TextMate" to reload bundles'
+
 
 ## Future goals
 
 I hope to incorporate either nullstyle's REPL or make my own. The vendor clojure implementation has readline support, but not completions. I might use the clj suggested on the clojure wiki instead.
+
+If I write my own REPL, I'll probably eliminate all the ruby out altogether. I'd prefer to find a way to collaborate with nullstyle instead though.
