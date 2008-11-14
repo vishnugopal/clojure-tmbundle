@@ -6,10 +6,11 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/bin/bash
+NAME="${TM_SELECTED_TEXT:-${TM_CURRENT_WORD:-name}}"
 
 cat &lt;&lt;SNIPPET
-(defn \${1:${TM_SELECTED_TEXT:-${TM_CURRENT_WORD:-name}}} 
-	"\${2:Docstring for \$1.}"
+(defn $NAME 
+	"\${2:Docstring for $NAME.}"
 	[\${3:params...}]
 	\${4:body...})
 SNIPPET</string>

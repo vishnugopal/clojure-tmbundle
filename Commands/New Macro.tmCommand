@@ -6,12 +6,13 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/bin/bash
+NAME="${TM_SELECTED_TEXT:-${TM_CURRENT_WORD:-name}}"
 
 cat &lt;&lt;SNIPPET
-(defmacro \${1:${TM_SELECTED_TEXT:-${TM_CURRENT_WORD:-name}}}
-	"\${2:Docstring for \$1.}"
-	[\${3:parameters}]
-	\${4:body})
+(defmacro $NAME
+	"\${2:Docstring for $NAME.}"
+	[\${3:parameters...}]
+	\${4:body...})
 SNIPPET</string>
 	<key>fallbackInput</key>
 	<string>word</string>
