@@ -10,6 +10,16 @@
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>
+		s/\s+/ /g;
+		s/^def(?:n|macro) ([\w\d\-]+) ".*" \(? ?(\[.*?\]).*/$1 $2/g;
+		s/^def(?:n|macro) ([\w\d\-]+) \(? ?(\[.*?\]).*/$1 $2/g;
+		s/\[\s+/[/;
+		s/\s+\]/]/;
+		s/\(\s*\[/[/;
+		s/\]\s*\)/]/;
+	</string>
 	</dict>
 	<key>uuid</key>
 	<string>DB582B33-FAC8-413C-8F24-C7DBBD45DA41</string>

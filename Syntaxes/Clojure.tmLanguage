@@ -166,7 +166,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=\(defmacro )([\w-]+)\s*\(\[</string>
+					<string>(?&lt;=\(defmacro )([\w-]+)\s*\(?\[</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -176,7 +176,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>\]</string>
+					<string>\]\s*\)?</string>
 					<key>name</key>
 					<string>meta.defmacro.clojure</string>
 					<key>patterns</key>
@@ -191,26 +191,54 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=\(defn )([\-\w\d\*\+\&lt;\&gt;\=\./\\,\~\!\@\#\$\%\^\&amp;]+)\s*\[</string>
+					<string>(?&lt;=\()(defn) ([\-\w\d\*\+\&lt;\&gt;\=\./\\,\~\!\@\#\$\%\^\&amp;]+)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.defn.clojure</string>
+						</dict>
+						<key>2</key>
 						<dict>
 							<key>name</key>
 							<string>entity.function.clojure</string>
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>\]</string>
+					<string>(?=\))</string>
 					<key>name</key>
 					<string>meta.defn.clojure</string>
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>match</key>
-							<string>\b[\-\w\d\*\+\&lt;\&gt;\=\./\\,\~\!\@\#\$\%\^\&amp;]+\b</string>
+							<key>include</key>
+							<string>#string</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\(?\s*\[</string>
+							<key>end</key>
+							<string>\]\s*\)?</string>
 							<key>name</key>
-							<string>variable.parameter.clojure</string>
+							<string>meta.defn.parameters.clojure</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>\b[\-\w\d\*\+\&lt;\&gt;\=\./\\,\~\!\@\#\$\%\^\&amp;]+\b</string>
+									<key>name</key>
+									<string>variable.parameter.clojure</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#sexpr</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#expr</string>
 						</dict>
 					</array>
 				</dict>
