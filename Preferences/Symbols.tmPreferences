@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbols</string>
 	<key>scope</key>
-	<string>meta.function.clojure</string>
+	<string>meta.function.clojure, meta.function.macro.clojure</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
