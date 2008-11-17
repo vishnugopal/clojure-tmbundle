@@ -593,6 +593,12 @@
 			<array>
 				<dict>
 					<key>match</key>
+					<string>([\w_?]|[\w+!\-_?*][\w+!\-_?0-9*]+?)([*+!\-_?](?=[^\w+!\-_?0-9*]))?+</string>
+					<key>name</key>
+					<string>variable.parameter.clojure</string>
+				</dict>
+				<dict>
+					<key>match</key>
 					<string>\&amp;</string>
 					<key>name</key>
 					<string>keyword.operator.varargs.clojure</string>
