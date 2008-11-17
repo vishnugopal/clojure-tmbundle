@@ -36,6 +36,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#namespace</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#sexpr</string>
 		</dict>
 	</array>
@@ -497,6 +501,76 @@
 					<string>(#\^)([.\w]+)</string>
 					<key>name</key>
 					<string>punctuation.metadata.class.clojure</string>
+				</dict>
+			</array>
+		</dict>
+		<key>namespace</key>
+		<dict>
+			<key>begin</key>
+			<string>\(\s*(ns)\b</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.namespace.clojure</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\)</string>
+			<key>name</key>
+			<string>meta.function.namespace.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#namespace_body</string>
+				</dict>
+			</array>
+		</dict>
+		<key>namespace_body</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>:refer-clojure|:require|:use|:import|:load|:exclude</string>
+					<key>name</key>
+					<string>support.function.constant.namespace.clojure</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#symbol</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\(</string>
+					<key>end</key>
+					<string>\)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#namespace_body</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\[</string>
+					<key>end</key>
+					<string>\]</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#namespace_body</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
