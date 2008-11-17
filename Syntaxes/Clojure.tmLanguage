@@ -562,7 +562,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(-|\+)?\b(0[xX])[0-9A-Za-z]+\b</string>
+					<string>(-|\+)?\b(0[xX])[0-9A-Fa-f]+\b</string>
 					<key>name</key>
 					<string>constant.numeric.integer.hexa.clojure</string>
 				</dict>
