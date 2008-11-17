@@ -194,7 +194,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>^\s*"</string>
+					<string>"</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -222,6 +222,37 @@
 							<string>\\.</string>
 							<key>name</key>
 							<string>constant.character.escape.clojure</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\{</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>comment.punctuation.definition.metadata.begin.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\}</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>comment.punctuation.definition.metadata.end.clojure</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.metadata.map.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#metadata_patterns</string>
 						</dict>
 					</array>
 				</dict>
@@ -445,41 +476,8 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>begin</key>
-							<string>(?&lt;=:doc)\s+"</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>string.quoted.double.begin.clojure</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>"</string>
-							<key>endCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>string.quoted.double.end.clojure</string>
-								</dict>
-							</dict>
-							<key>name</key>
-							<string>comment.block.documentation.string.coljure</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>match</key>
-									<string>\\.</string>
-									<key>name</key>
-									<string>constant.character.escape.clojure</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
 							<key>include</key>
-							<string>#all</string>
+							<string>#metadata_patterns</string>
 						</dict>
 					</array>
 				</dict>
@@ -501,6 +499,49 @@
 					<string>(#\^)([.\w]+)</string>
 					<key>name</key>
 					<string>punctuation.metadata.class.clojure</string>
+				</dict>
+			</array>
+		</dict>
+		<key>metadata_patterns</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=:doc)\s+"</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>string.quoted.double.begin.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>"</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>string.quoted.double.end.clojure</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.docstring.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\\.</string>
+							<key>name</key>
+							<string>constant.character.escape.clojure</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#all</string>
 				</dict>
 			</array>
 		</dict>
