@@ -648,6 +648,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#parameters</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#all</string>
 				</dict>
 			</array>
