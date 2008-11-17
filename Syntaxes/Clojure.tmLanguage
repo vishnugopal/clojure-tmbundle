@@ -164,10 +164,6 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#parameters</string>
-				</dict>
-				<dict>
 					<key>begin</key>
 					<string>\(\s*(?=\[)</string>
 					<key>end</key>
@@ -178,17 +174,13 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#parameters</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#all</string>
+							<string>#parameters_body</string>
 						</dict>
 					</array>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#all</string>
+					<string>#parameters_body</string>
 				</dict>
 			</array>
 		</dict>
@@ -671,6 +663,29 @@
 				<dict>
 					<key>include</key>
 					<string>#all</string>
+				</dict>
+			</array>
+		</dict>
+		<key>parameters_body</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#parameters</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=\])</string>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#all</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
