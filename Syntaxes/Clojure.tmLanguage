@@ -540,9 +540,19 @@
 							<key>name</key>
 							<string>keyword.operator.arithmetic.octal.clojure</string>
 						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>invalid.illegal.integer.octal.clojure</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>invalid.illegal.integer.octal.clojure</string>
+						</dict>
 					</dict>
 					<key>match</key>
-					<string>(-|\+)?\b(0)\d+\b</string>
+					<string>(-|\+)?\b(0)([0-7]+|([89]))([0-9]*)\b</string>
 					<key>name</key>
 					<string>constant.numeric.integer.octal.clojure</string>
 				</dict>
