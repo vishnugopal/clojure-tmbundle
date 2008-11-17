@@ -218,7 +218,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>comment.block.documentation.string.coljure</string>
+					<string>string.docstring.clojure</string>
 					<key>patterns</key>
 					<array>
 						<dict>

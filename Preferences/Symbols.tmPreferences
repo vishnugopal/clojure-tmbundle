@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbols</string>
 	<key>scope</key>
-	<string>meta.defn.clojure</string>
+	<string>meta.function.clojure</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
@@ -13,8 +13,8 @@
 		<key>symbolTransformation</key>
 		<string>
 		s/\s+/ /g;
-		s/^def(?:n|macro) ([\w\d\-]+) ".*" \(? ?(\[.*?\]).*/$1 $2/g;
-		s/^def(?:n|macro) ([\w\d\-]+) \(? ?(\[.*?\]).*/$1 $2/g;
+		s/^\(def(?:n|macro) ([\w\d\-]+) ".*" \(? ?(\[.*?\]).*/$1 $2/g;
+		s/^\(def(?:n|macro) ([\w\d\-]+) \(? ?(\[.*?\]).*/$1 $2/g;
 		s/\[\s+/[/;
 		s/\s+\]/]/;
 		s/\(\s*\[/[/;
