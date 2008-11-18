@@ -513,6 +513,12 @@
 					<string>support.function.keyword.metadata.clojure</string>
 				</dict>
 				<dict>
+					<key>match</key>
+					<string>(?&lt;=:tag)\s+([.\w]+)</string>
+					<key>name</key>
+					<string>entity.name.type.class.java.clojure</string>
+				</dict>
+				<dict>
 					<key>begin</key>
 					<string>(?&lt;=:doc)\s+"</string>
 					<key>beginCaptures</key>
