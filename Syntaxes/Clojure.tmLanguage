@@ -36,6 +36,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#namespace</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#sexpr</string>
 		</dict>
 	</array>
@@ -164,10 +168,6 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#parameters</string>
-				</dict>
-				<dict>
 					<key>begin</key>
 					<string>\(\s*(?=\[)</string>
 					<key>end</key>
@@ -178,17 +178,13 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#parameters</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#all</string>
+							<string>#parameters_body</string>
 						</dict>
 					</array>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#all</string>
+					<string>#parameters_body</string>
 				</dict>
 			</array>
 		</dict>
@@ -198,7 +194,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>^\s*"</string>
+					<string>"</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -222,10 +218,39 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>match</key>
-							<string>\\.</string>
+							<key>include</key>
+							<string>#string_escape</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\{</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
 							<key>name</key>
-							<string>constant.character.escape.clojure</string>
+							<string>comment.punctuation.definition.metadata.begin.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\}</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>comment.punctuation.definition.metadata.end.clojure</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.metadata.map.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#metadata_patterns</string>
 						</dict>
 					</array>
 				</dict>
@@ -449,41 +474,8 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>begin</key>
-							<string>(?&lt;=:doc)\s+"</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>string.quoted.double.begin.clojure</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>"</string>
-							<key>endCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>string.quoted.double.end.clojure</string>
-								</dict>
-							</dict>
-							<key>name</key>
-							<string>comment.block.documentation.string.coljure</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>match</key>
-									<string>\\.</string>
-									<key>name</key>
-									<string>constant.character.escape.clojure</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
 							<key>include</key>
-							<string>#all</string>
+							<string>#metadata_patterns</string>
 						</dict>
 					</array>
 				</dict>
@@ -505,6 +497,129 @@
 					<string>(#\^)([.\w]+)</string>
 					<key>name</key>
 					<string>punctuation.metadata.class.clojure</string>
+				</dict>
+			</array>
+		</dict>
+		<key>metadata_patterns</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>:tag|:doc|:arglists|:private|:macro|:name|:ns|:inline|:inline-arities|:line|:file</string>
+					<key>name</key>
+					<string>support.function.keyword.metadata.clojure</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;=:tag)\s+([.\w]+)</string>
+					<key>name</key>
+					<string>entity.name.type.class.java.clojure</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=:doc)\s+"</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>string.quoted.double.begin.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>"</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>string.quoted.double.end.clojure</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.docstring.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#string_escape</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#all</string>
+				</dict>
+			</array>
+		</dict>
+		<key>namespace</key>
+		<dict>
+			<key>begin</key>
+			<string>\(\s*(ns)\b</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.namespace.clojure</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\)</string>
+			<key>name</key>
+			<string>meta.function.namespace.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#namespace_body</string>
+				</dict>
+			</array>
+		</dict>
+		<key>namespace_body</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>:refer-clojure|:require|:use|:import|:load|:exclude</string>
+					<key>name</key>
+					<string>support.function.constant.namespace.clojure</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#symbol</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\(</string>
+					<key>end</key>
+					<string>\)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#namespace_body</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\[</string>
+					<key>end</key>
+					<string>\]</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#namespace_body</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
@@ -584,7 +699,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![a-zA-Z0-9*+!_?\-])(\*|/|\&lt;|\&lt;=|=|==|\&gt;|\&gt;=)(?![a-zA-Z0-9*+!_?\-])</string>
+					<string>(?&lt;![a-zA-Z0-9*+!_?\-])(\*|/|\&lt;|\&lt;=|=|==|\&gt;|\&gt;=|-\&gt;)(?![a-zA-Z0-9*+!_?\-])</string>
 					<key>name</key>
 					<string>keyword.operator.clojure</string>
 				</dict>
@@ -605,6 +720,24 @@
 					<string>%(\d+|&amp;)?</string>
 					<key>name</key>
 					<string>variable.parameter.literal.clojure</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>`|~@|~</string>
+					<key>name</key>
+					<string>keyword.control.operator.clojure</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>#'|@</string>
+					<key>name</key>
+					<string>storage.type.function.type.clojure</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>'</string>
+					<key>name</key>
+					<string>constant.other.quote</string>
 				</dict>
 			</array>
 		</dict>
@@ -631,14 +764,12 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>meta.function.parameters.clojure</string>
+			<string>meta.function.parameters.vector.clojure</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>match</key>
-					<string>([\w_?]|[\w+!\-_?*][\w+!\-_?0-9*]+?)([*+!\-_?](?=[^\w+!\-_?0-9*]))?+</string>
-					<key>name</key>
-					<string>variable.parameter.clojure</string>
+					<key>include</key>
+					<string>#parameters_variable</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -647,14 +778,104 @@
 					<string>keyword.operator.varargs.clojure</string>
 				</dict>
 				<dict>
+					<key>match</key>
+					<string>:as</string>
+					<key>name</key>
+					<string>keyword.operator.symbolargs.clojure</string>
+				</dict>
+				<dict>
 					<key>include</key>
 					<string>#parameters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#parameters_map</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#all</string>
 				</dict>
 			</array>
+		</dict>
+		<key>parameters_body</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#parameters</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=\])</string>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#all</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>parameters_map</key>
+		<dict>
+			<key>begin</key>
+			<string>\{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.map.begin.clojure</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\}</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.map.end.clojure</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.function.parameters.map.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#parameters_variable</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>:as|:or|:keys|:strs|:syms</string>
+					<key>name</key>
+					<string>keyword.operator.symbolargs.clojure</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#parameters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#parameters_map</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#all</string>
+				</dict>
+			</array>
+		</dict>
+		<key>parameters_variable</key>
+		<dict>
+			<key>match</key>
+			<string>([\w_?]|[\w+!\-_?*][\w+!\-_?0-9*]+?)([*+!\-_?](?=[^\w+!\-_?0-9*]))?+</string>
+			<key>name</key>
+			<string>variable.parameter.clojure</string>
 		</dict>
 		<key>set</key>
 		<dict>
@@ -734,10 +955,8 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>match</key>
-							<string>\\.</string>
-							<key>name</key>
-							<string>constant.character.escape.clojure</string>
+							<key>include</key>
+							<string>#string_escape</string>
 						</dict>
 					</array>
 				</dict>
@@ -745,7 +964,7 @@
 					<key>match</key>
 					<string>\\(u[0-9a-fA-F]{4}|newline|tab|space|backspace|formfeed|return|[^\s])</string>
 					<key>name</key>
-					<string>constant.character.entity.clojure</string>
+					<string>constant.character.escape.clojure</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -793,6 +1012,21 @@
 					</array>
 				</dict>
 			</array>
+		</dict>
+		<key>string_escape</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.escape.string.clojure</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\\(u[0-9a-fA-F]{4}|b|t|n|f|r|"|'|\\|[0-3]?[0-7]{1,2}|(.))</string>
+			<key>name</key>
+			<string>constant.character.escape.clojure</string>
 		</dict>
 		<key>symbol</key>
 		<dict>
