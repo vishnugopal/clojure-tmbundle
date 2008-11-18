@@ -33,7 +33,7 @@ module Clojure::Util
     return <<-APPLESCRIPT
       tell application "Terminal"
         activate
-        do script "screen -x #{command}"
+        do script "#{command}"
       end tell
   APPLESCRIPT
   end
