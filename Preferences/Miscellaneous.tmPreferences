@@ -8,6 +8,13 @@
 	<string>source.clojure</string>
 	<key>settings</key>
 	<dict>
+		<key>decreaseIndentPattern</key>
+		<string>(?x)^ [ \t]*+
+	  (?&lt;par&gt;
+	    ( [^()\n]++ | \( \g&lt;par&gt; \) )*+
+	  )
+	  ( \) [ \t]*+ ) ++
+	$</string>
 		<key>highlightPairs</key>
 		<array>
 			<array>
@@ -24,7 +31,11 @@
 			</array>
 		</array>
 		<key>increaseIndentPattern</key>
-		<string>^.*\(.*[^)"]$</string>
+		<string>(?x)^ [ \t]*+ \(
+	  (?&lt;par&gt;
+	    ( [^()\n]++ | \( \g&lt;par&gt; \)? )*+
+	  )
+	$</string>
 		<key>shellVariables</key>
 		<array>
 			<dict>
@@ -37,20 +48,20 @@
 		<key>smartTypingPairs</key>
 		<array>
 			<array>
-				<string>(</string>
-				<string>)</string>
+				<string>"</string>
+				<string>"</string>
 			</array>
 			<array>
-				<string>[</string>
-				<string>]</string>
+				<string>(</string>
+				<string>)</string>
 			</array>
 			<array>
 				<string>{</string>
 				<string>}</string>
 			</array>
 			<array>
-				<string>"</string>
-				<string>"</string>
+				<string>[</string>
+				<string>]</string>
 			</array>
 		</array>
 	</dict>

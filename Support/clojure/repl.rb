@@ -1,5 +1,6 @@
 require ENV['TM_SUPPORT_PATH'] + '/lib/escape.rb'
 require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
+require ENV['TM_SUPPORT_PATH'] + '/lib/exit_codes.rb'
 require 'socket'
 require 'timeout'
 
@@ -61,7 +62,6 @@ class Clojure::REPL
   
   private
   def get_socket(retries_left = 3)
-    p port
     TCPSocket.new("localhost", port)
   rescue Errno::ECONNREFUSED
     retries_left -= 1
