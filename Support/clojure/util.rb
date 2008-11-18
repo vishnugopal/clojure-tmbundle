@@ -20,10 +20,20 @@ module Clojure::Util
   def is_running(process)
     all = `ps -U "$USER" -o ucomm`
     all.to_a[1..-1].find { |cmd| process == cmd.strip }
+  end                     
+  
+  def get_clj()
+    if ENV['TM_CLJ'] != nil
+      return ENV['TM_CLJ']
+    elsif `which clj` != ""
+      return `which clj`
+    else
+      return File.expand_path(File.dirname(__FILE__) + '/../../Vendor/clj')
+    end
   end
 
   def make_command(screen)
-    return "screen -x #{e_sh screen} || screen -S #{e_sh screen}"
+    return "screen -dm -x #{e_sh screen} || screen -S #{e_sh screen} -- '#{get_clj}' -i"
   end
   
 
