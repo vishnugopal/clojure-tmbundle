@@ -55,7 +55,14 @@ module Clojure
   
     private
     def get_repl
-      project_name = File.basename(ENV["TM_PROJECT_DIRECTORY"])
+      if ENV["TM_PROJECT_DIRECTORY"] != nil
+        project_name = File.basename(ENV["TM_PROJECT_DIRECTORY"])
+      elsif ENV["TM_FILENAME"] != nil
+        project_name = File.basename(ENV["TM_FILENAME"])
+      else
+        project_name = "untitled-#{rand(10000)}"
+      end
+      
       Clojure.ensure_running(project_name)
     end
   
