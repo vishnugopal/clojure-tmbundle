@@ -5,21 +5,22 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>echo "&lt;meta http-equiv='Refresh' content='0;URL=http://clojure.org/api'&gt;"
-</string>
-	<key>fallbackInput</key>
-	<string>word</string>
+	<string>#!/usr/bin/env ruby -wKU
+
+require ENV['TM_BUNDLE_SUPPORT'] + '/clojure.rb'
+
+Clojure::Mate.run_current_form_or_line</string>
 	<key>input</key>
-	<string>none</string>
+	<string>document</string>
 	<key>keyEquivalent</key>
-	<string>^H</string>
+	<string>@r</string>
 	<key>name</key>
-	<string>API</string>
+	<string>Run selection</string>
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
 	<string>source.clojure</string>
 	<key>uuid</key>
-	<string>0CD94D29-C0F2-441B-8AAA-AF2D8F3E53B3</string>
+	<string>B22B0223-9874-4EBE-807C-F99D559D108D</string>
 </dict>
 </plist>
