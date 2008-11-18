@@ -75,6 +75,461 @@
 				</dict>
 			</array>
 		</dict>
+		<key>binding</key>
+		<dict>
+			<key>comment</key>
+			<string>consume bindings to the end, dual recursive with binding_exp</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\[</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.vector.begin.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding.vector.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?&lt;=\[)</string>
+							<key>comment</key>
+							<string>TODO: merge with parameters ??</string>
+							<key>end</key>
+							<string>\]</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.vector.end.clojure</string>
+								</dict>
+							</dict>
+							<key>name</key>
+							<string>meta.function.parameters.vector.clojure</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#parameters_variable</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>\&amp;</string>
+									<key>name</key>
+									<string>keyword.operator.varargs.clojure</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>:as</string>
+									<key>name</key>
+									<string>keyword.operator.symbolargs.clojure</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#parameters</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#parameters_map</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#all</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#binding_exp</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\{</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.map.begin.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding.map.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?&lt;=\{)</string>
+							<key>comment</key>
+							<string>TODO: merge with map ??</string>
+							<key>end</key>
+							<string>\}</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.map.end.clojure</string>
+								</dict>
+							</dict>
+							<key>name</key>
+							<string>meta.function.parameters.map.clojure</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#parameters_variable</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>:as|:or|:keys|:strs|:syms</string>
+									<key>name</key>
+									<string>keyword.operator.symbolargs.clojure</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#parameters</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#parameters_map</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#all</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#binding_exp</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>[a-zA-Z+!\-_?0-9*~#@'`]+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>variable.parameter.clojure</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>FIXME: symbol matching</string>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding.symbole.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#binding_exp</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>[^\s]</string>
+					<key>end</key>
+					<string>[^\]]</string>
+					<key>name</key>
+					<string>invalid.illegal.bindings.clojure</string>
+				</dict>
+			</array>
+		</dict>
+		<key>binding_exp</key>
+		<dict>
+			<key>comment</key>
+			<string>consume bindings to the end, dual recursive with binding</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#operator_special</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?=\()</string>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding_exp.sexp.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?=\()</string>
+							<key>end</key>
+							<string>(?&lt;=\))</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#function</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#lambda</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#macro</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#sexpr</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#binding</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(\[)</string>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding_exp.vector.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?&lt;=\[)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.vector.begin.clojure</string>
+								</dict>
+							</dict>
+							<key>comment</key>
+							<string>TODO: merge with vector</string>
+							<key>end</key>
+							<string>\]</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.vector.end.clojure</string>
+								</dict>
+							</dict>
+							<key>name</key>
+							<string>meta.expression.vector.clojure</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#all</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#binding</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(\{)</string>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding_exp.map.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?&lt;=\{)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.map.begin.clojure</string>
+								</dict>
+							</dict>
+							<key>comment</key>
+							<string>TODO: merge with map</string>
+							<key>end</key>
+							<string>}</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.map.end.clojure</string>
+								</dict>
+							</dict>
+							<key>name</key>
+							<string>meta.expression.map.clojure</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#all</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#binding</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?=#\{)</string>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding_exp.set.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#set</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#binding</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?=")|(?=\\)|(?=\:)|(?=\#")</string>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding_exp.string.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#string</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#binding</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.]+)</string>
+					<key>comment</key>
+					<string>FIXME: symbol matching</string>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding_exp.symbole.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.])</string>
+							<key>end</key>
+							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.])</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#keyword</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#operator</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#number</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#symbol</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#binding</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>[^\s]</string>
+					<key>end</key>
+					<string>[^\]]</string>
+					<key>name</key>
+					<string>invalid.illegal.bindings.clojure</string>
+				</dict>
+			</array>
+		</dict>
+		<key>bindings_form</key>
+		<dict>
+			<key>begin</key>
+			<string>\[</string>
+			<key>comment</key>
+			<string>bindings followed by all</string>
+			<key>end</key>
+			<string>(?=\))</string>
+			<key>name</key>
+			<string>meta.structure.bindings.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=\[)</string>
+					<key>end</key>
+					<string>\]</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#binding</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=\])</string>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#all</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
 		<key>comment</key>
 		<dict>
 			<key>captures</key>
@@ -151,6 +606,8 @@
 					<string>entity.name.function.clojure</string>
 				</dict>
 			</dict>
+			<key>comment</key>
+			<string>FIXME: symbol matching</string>
 			<key>end</key>
 			<string>\)</string>
 			<key>name</key>
@@ -346,6 +803,8 @@
 							<string>entity.name.function.clojure</string>
 						</dict>
 					</dict>
+					<key>comment</key>
+					<string>FIXME: symbol matching</string>
 					<key>end</key>
 					<string>\)</string>
 					<key>name</key>
@@ -400,6 +859,8 @@
 					<string>entity.name.function.clojure</string>
 				</dict>
 			</dict>
+			<key>comment</key>
+			<string>FIXME: symbol matching</string>
 			<key>end</key>
 			<string>\)</string>
 			<key>name</key>
@@ -722,6 +1183,16 @@
 					<string>variable.parameter.literal.clojure</string>
 				</dict>
 				<dict>
+					<key>include</key>
+					<string>#operator_special</string>
+				</dict>
+			</array>
+		</dict>
+		<key>operator_special</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
 					<key>match</key>
 					<string>`|~@|~</string>
 					<key>name</key>
@@ -738,6 +1209,12 @@
 					<string>'</string>
 					<key>name</key>
 					<string>constant.other.quote</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\^</string>
+					<key>name</key>
+					<string>constant.other.metadata.read.clojure</string>
 				</dict>
 			</array>
 		</dict>
@@ -872,6 +1349,8 @@
 		</dict>
 		<key>parameters_variable</key>
 		<dict>
+			<key>comment</key>
+			<string>FIXME: symbol matching</string>
 			<key>match</key>
 			<string>([\w_?]|[\w+!\-_?*][\w+!\-_?0-9*]+?)([*+!\-_?](?=[^\w+!\-_?0-9*]))?+</string>
 			<key>name</key>
@@ -921,7 +1400,40 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#sexpr_special</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#all</string>
+				</dict>
+			</array>
+		</dict>
+		<key>sexpr_special</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=\()\s*(let)\s+(?=\[)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>name</key>
+					<string>meta.function.let.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#bindings_form</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
@@ -1046,6 +1558,8 @@
 							<string>invalid.illegal.symbol.clojure</string>
 						</dict>
 					</dict>
+					<key>comment</key>
+					<string>FIXME: symbol matching</string>
 					<key>match</key>
 					<string>([a-zA-Z][a-zA-Z+!\-_?0-9*]*?([*+!\-_?](?=[^a-zA-Z+!\-_?0-9*]))?+)|([!_?*][a-zA-Z+!\-_?0-9*]*)|([+\-](([0-9])|[a-zA-Z+!\-_?])[a-zA-Z+!\-_?0-9*]*)</string>
 					<key>name</key>
