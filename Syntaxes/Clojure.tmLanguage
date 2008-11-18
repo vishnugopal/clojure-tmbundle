@@ -218,10 +218,8 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>match</key>
-							<string>\\.</string>
-							<key>name</key>
-							<string>constant.character.escape.clojure</string>
+							<key>include</key>
+							<string>#string_escape</string>
 						</dict>
 					</array>
 				</dict>
@@ -544,10 +542,8 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>match</key>
-							<string>\\.</string>
-							<key>name</key>
-							<string>constant.character.escape.clojure</string>
+							<key>include</key>
+							<string>#string_escape</string>
 						</dict>
 					</array>
 				</dict>
@@ -959,10 +955,8 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>match</key>
-							<string>\\.</string>
-							<key>name</key>
-							<string>constant.character.escape.clojure</string>
+							<key>include</key>
+							<string>#string_escape</string>
 						</dict>
 					</array>
 				</dict>
@@ -970,7 +964,7 @@
 					<key>match</key>
 					<string>\\(u[0-9a-fA-F]{4}|newline|tab|space|backspace|formfeed|return|[^\s])</string>
 					<key>name</key>
-					<string>constant.character.entity.clojure</string>
+					<string>constant.character.escape.clojure</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -1018,6 +1012,21 @@
 					</array>
 				</dict>
 			</array>
+		</dict>
+		<key>string_escape</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.escape.string.clojure</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\\(u[0-9a-fA-F]{4}|b|t|n|f|r|"|'|\\|[0-3]?[0-7]{1,2}|(.))</string>
+			<key>name</key>
+			<string>constant.character.escape.clojure</string>
 		</dict>
 		<key>symbol</key>
 		<dict>
