@@ -507,6 +507,12 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>match</key>
+					<string>:tag|:doc|:arglists|:private|:macro|:name|:ns|:inline|:inline-arities|:line|:file</string>
+					<key>name</key>
+					<string>support.function.keyword.metadata.clojure</string>
+				</dict>
+				<dict>
 					<key>begin</key>
 					<string>(?&lt;=:doc)\s+"</string>
 					<key>beginCaptures</key>
