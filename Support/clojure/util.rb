@@ -22,12 +22,18 @@ module Clojure::Util
     all.to_a[1..-1].find { |cmd| process == cmd.strip }
   end
 
+  def make_command(screen)
+    return "screen -x #{e_sh screen} || screen -S #{e_sh screen}"
+  end
+  
 
   def terminal_script(screen)
+    command = make_command(screen)
+    
     return <<-APPLESCRIPT
       tell application "Terminal"
         activate
-        do script "screen -x #{e_sh screen}"
+        do script "screen -x #{command}"
       end tell
   APPLESCRIPT
   end
@@ -47,7 +53,7 @@ module Clojure::Util
           launch session "Default Session"
 
           tell the last session
-            write text "screen -x #{e_sh screen}"
+            write text "#{command}"
           end tell
         end tell
         
