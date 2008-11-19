@@ -440,7 +440,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.]+)</string>
+					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.])</string>
 					<key>comment</key>
 					<string>FIXME: symbol matching</string>
 					<key>end</key>
@@ -475,8 +475,17 @@
 							</array>
 						</dict>
 						<dict>
-							<key>include</key>
-							<string>#binding</string>
+							<key>begin</key>
+							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.])</string>
+							<key>end</key>
+							<string>(?=\])</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#binding</string>
+								</dict>
+							</array>
 						</dict>
 					</array>
 				</dict>
