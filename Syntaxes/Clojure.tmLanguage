@@ -82,6 +82,10 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
 					<key>begin</key>
 					<string>\[</string>
 					<key>beginCaptures</key>
@@ -260,6 +264,10 @@
 			<string>consume bindings to the end, dual recursive with binding</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#operator_special</string>
