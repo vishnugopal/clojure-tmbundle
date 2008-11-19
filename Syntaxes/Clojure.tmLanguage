@@ -86,6 +86,10 @@
 					<string>#comment</string>
 				</dict>
 				<dict>
+					<key>include</key>
+					<string>#metadata</string>
+				</dict>
+				<dict>
 					<key>begin</key>
 					<string>\[</string>
 					<key>beginCaptures</key>
@@ -267,6 +271,10 @@
 				<dict>
 					<key>include</key>
 					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#metadata</string>
 				</dict>
 				<dict>
 					<key>include</key>
