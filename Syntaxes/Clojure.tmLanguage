@@ -274,6 +274,29 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>(\(\)|{}|\[\])</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>constant.language.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding_exp.constant.language.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#binding</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(?=\()</string>
 					<key>end</key>
 					<string>(?=\])</string>
