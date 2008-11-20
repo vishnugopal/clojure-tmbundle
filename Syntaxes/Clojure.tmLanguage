@@ -868,7 +868,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b(associative|branch|class|coll|contains|decimal|delay|distinct|empty|end|even|every|false|float|fn|identical|instance|integer|isa|keyword|list|map|neg|nil|not-any|not-every|number|odd|pos|ratio|reversible|seq|sequential|set|sorted|special-symbol|string|symbol|true|var|zero|vector)\?(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b(rational|associative|branch|class|coll|contains|decimal|delay|distinct|empty|end|even|every|false|float|fn|identical|instance|integer|isa|keyword|list|map|neg|nil|not-any|not-every|number|odd|pos|ratio|reversible|seq|sequential|set|sorted|special-symbol|string|symbol|true|var|zero|vector)\?(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>support.function.tester.clojure</string>
 				</dict>
