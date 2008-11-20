@@ -1345,10 +1345,6 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#parameters_variable</string>
-				</dict>
-				<dict>
 					<key>match</key>
 					<string>\&amp;</string>
 					<key>name</key>
@@ -1362,15 +1358,15 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#parameters_variable</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#parameters</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#parameters_map</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#all</string>
 				</dict>
 			</array>
 		</dict>
@@ -1449,12 +1445,33 @@
 		</dict>
 		<key>parameters_variable</key>
 		<dict>
+			<key>begin</key>
+			<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.])</string>
 			<key>comment</key>
-			<string>FIXME: symbol matching</string>
-			<key>match</key>
-			<string>([\w_?]|[\w+!\-_?*][\w+!\-_?0-9*]+?)([*+!\-_?](?=[^\w+!\-_?0-9*]))?+</string>
+			<string>FIXME: symbol matching TODO:operator number =&gt; error ?</string>
+			<key>end</key>
+			<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.])</string>
 			<key>name</key>
 			<string>variable.parameter.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#keyword</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#number</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#symbol</string>
+				</dict>
+			</array>
 		</dict>
 		<key>set</key>
 		<dict>
