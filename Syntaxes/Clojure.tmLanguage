@@ -1385,6 +1385,14 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#metadata</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#parameters_variable</string>
 				</dict>
 				<dict>
