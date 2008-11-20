@@ -349,7 +349,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?=\()</string>
+					<string>(?=#?\()</string>
 					<key>end</key>
 					<string>(?=\])</string>
 					<key>name</key>
@@ -358,7 +358,7 @@
 					<array>
 						<dict>
 							<key>begin</key>
-							<string>(?=\()</string>
+							<string>(?=#?\()</string>
 							<key>end</key>
 							<string>(?&lt;=\))</string>
 							<key>patterns</key>
