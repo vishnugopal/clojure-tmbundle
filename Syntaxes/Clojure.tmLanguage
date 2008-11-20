@@ -127,6 +127,14 @@
 							<array>
 								<dict>
 									<key>include</key>
+									<string>#comment</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#metadata</string>
+								</dict>
+								<dict>
+									<key>include</key>
 									<string>#parameters_variable</string>
 								</dict>
 								<dict>
@@ -197,6 +205,14 @@
 							<string>meta.function.parameters.map.clojure</string>
 							<key>patterns</key>
 							<array>
+								<dict>
+									<key>include</key>
+									<string>#comment</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#metadata</string>
+								</dict>
 								<dict>
 									<key>include</key>
 									<string>#parameters_variable</string>
