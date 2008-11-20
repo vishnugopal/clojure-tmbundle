@@ -1098,7 +1098,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(#\^)([.\w]+)</string>
+					<string>(#\^)([a-zA-Z+!\-_?0-9*/.$=]+)</string>
 					<key>name</key>
 					<string>punctuation.metadata.class.clojure</string>
 				</dict>
@@ -1116,7 +1116,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;=:tag)\s+([.\w]+)</string>
+					<string>(?&lt;=:tag)\s+([a-zA-Z+!\-_?0-9*/.$=]+)</string>
 					<key>name</key>
 					<string>entity.name.type.class.java.clojure</string>
 				</dict>
