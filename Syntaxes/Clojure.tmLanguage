@@ -668,18 +668,13 @@
 		<key>function</key>
 		<dict>
 			<key>begin</key>
-			<string>\(\s*(\b(defn\-?))(\s)+((\-|[a-zA-Z0-9]|\+|\*|\_|\!|\?)*)</string>
+			<string>\(\s*(defn\-?)\s</string>
 			<key>beginCaptures</key>
 			<dict>
-				<key>2</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>storage.type.function.type.clojure</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.clojure</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -690,6 +685,10 @@
 			<string>meta.function.clojure</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#function_name</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#function_body_comment</string>
@@ -793,6 +792,36 @@
 				</dict>
 			</array>
 		</dict>
+		<key>function_name</key>
+		<dict>
+			<key>begin</key>
+			<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.])</string>
+			<key>comment</key>
+			<string>FIXME: symbol matching TODO:operator number =&gt; error ?</string>
+			<key>end</key>
+			<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.])</string>
+			<key>name</key>
+			<string>entity.name.function.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#keyword</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#number</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#symbol</string>
+				</dict>
+			</array>
+		</dict>
 		<key>keyword</key>
 		<dict>
 			<key>patterns</key>
@@ -865,18 +894,13 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\(\s*(\b(fn))(\s)+((\-|[a-zA-Z0-9]|\+|\*|\_|\!|\?)*)?</string>
+					<string>\(\s*(fn)\s+</string>
 					<key>beginCaptures</key>
 					<dict>
-						<key>2</key>
+						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>storage.type.function.type.clojure</string>
-						</dict>
-						<key>4</key>
-						<dict>
-							<key>name</key>
-							<string>entity.name.function.clojure</string>
 						</dict>
 					</dict>
 					<key>comment</key>
@@ -887,6 +911,10 @@
 					<string>meta.function.lambda.clojure</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>include</key>
+							<string>#function_name</string>
+						</dict>
 						<dict>
 							<key>include</key>
 							<string>#function_body</string>
@@ -921,18 +949,13 @@
 		<key>macro</key>
 		<dict>
 			<key>begin</key>
-			<string>\(\s*(\b(defmacro\-?))(\s)+((\-|[a-zA-Z0-9]|\+|\*|\_|\!|\?)*)</string>
+			<string>\(\s*(\b(defmacro\-?))\s+</string>
 			<key>beginCaptures</key>
 			<dict>
-				<key>2</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>storage.type.function.type.clojure</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.clojure</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -943,6 +966,10 @@
 			<string>meta.function.macro.clojure</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#function_name</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#function_body_comment</string>
