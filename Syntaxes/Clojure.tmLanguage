@@ -1655,8 +1655,10 @@
 							<string>keyword.operator.symbole.clojure</string>
 						</dict>
 					</dict>
+					<key>comment</key>
+					<string>. is OK in symbol ?</string>
 					<key>match</key>
-					<string>(\:)((\-|[a-zA-Z0-9]|\+|\*|\_|\!|\?)*)</string>
+					<string>(\:)([a-zA-Z+!\-_?0-9*/.$=]+)</string>
 					<key>name</key>
 					<string>constant.string.symbole.clojure</string>
 				</dict>
