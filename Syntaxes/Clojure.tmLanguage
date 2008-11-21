@@ -1131,7 +1131,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>:tag|:doc|:arglists|:private|:macro|:name|:ns|:inline|:inline-arities|:line|:file</string>
+					<string>:tag|:doc|:arglists|:private|:macro|:name|:ns|:inline-arities|:inline|:line|:file</string>
 					<key>name</key>
 					<string>support.function.keyword.metadata.clojure</string>
 				</dict>
