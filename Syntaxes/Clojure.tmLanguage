@@ -145,7 +145,7 @@
 								</dict>
 								<dict>
 									<key>match</key>
-									<string>:as</string>
+									<string>(:as)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 									<key>name</key>
 									<string>keyword.operator.symbolargs.clojure</string>
 								</dict>
@@ -219,7 +219,7 @@
 								</dict>
 								<dict>
 									<key>match</key>
-									<string>:as|:or|:keys|:strs|:syms</string>
+									<string>(:as|:or|:keys|:strs|:syms)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 									<key>name</key>
 									<string>keyword.operator.symbolargs.clojure</string>
 								</dict>
@@ -1131,7 +1131,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>:tag|:doc|:arglists|:private|:macro|:name|:ns|:inline-arities|:inline|:line|:file</string>
+					<string>(:tag|:doc|:arglists|:private|:macro|:name|:ns|:inline-arities|:inline|:line|:file)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>support.function.keyword.metadata.clojure</string>
 				</dict>
@@ -1208,7 +1208,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>:refer-clojure|:require|:use|:import|:load|:exclude</string>
+					<string>(:refer-clojure|:require|:use|:import|:load|:exclude)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>support.function.constant.namespace.clojure</string>
 				</dict>
@@ -1416,7 +1416,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>:as</string>
+					<string>(:as)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>keyword.operator.symbolargs.clojure</string>
 				</dict>
@@ -1497,7 +1497,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>:as|:or|:keys|:strs|:syms</string>
+					<string>(:as|:or|:keys|:strs|:syms)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>keyword.operator.symbolargs.clojure</string>
 				</dict>
