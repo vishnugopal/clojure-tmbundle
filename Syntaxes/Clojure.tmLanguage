@@ -245,6 +245,29 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>(:when|:while)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.symbolargs.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding.symbolargs.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#binding_exp</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>comment</key>
 					<string>symbol matching</string>
@@ -1603,7 +1626,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=\()\s*(let|loop|doseq|dotimes|binding)\s+(?=\[)</string>
+					<string>(?&lt;=\()\s*(let|loop|doseq|dotimes|binding|for)\s+(?=\[)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
