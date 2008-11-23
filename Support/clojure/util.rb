@@ -49,6 +49,8 @@ module Clojure::Util
   end
 
   def iterm_script(screen)
+    command = make_command(screen)
+    
     return <<-APPLESCRIPT
       tell application "iTerm"
         activate
