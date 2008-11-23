@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>comment</key>
-	<string></string>
+	<string>Symbol pattern : [a-zA-Z+!\-_?0-9*~#@'`/.$=]</string>
 	<key>fileTypes</key>
 	<array>
 		<string>clj</string>
@@ -127,6 +127,14 @@
 							<array>
 								<dict>
 									<key>include</key>
+									<string>#comment</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#metadata</string>
+								</dict>
+								<dict>
+									<key>include</key>
 									<string>#parameters_variable</string>
 								</dict>
 								<dict>
@@ -137,7 +145,7 @@
 								</dict>
 								<dict>
 									<key>match</key>
-									<string>:as</string>
+									<string>(:as)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 									<key>name</key>
 									<string>keyword.operator.symbolargs.clojure</string>
 								</dict>
@@ -199,11 +207,19 @@
 							<array>
 								<dict>
 									<key>include</key>
+									<string>#comment</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#metadata</string>
+								</dict>
+								<dict>
+									<key>include</key>
 									<string>#parameters_variable</string>
 								</dict>
 								<dict>
 									<key>match</key>
-									<string>:as|:or|:keys|:strs|:syms</string>
+									<string>(:as|:or|:keys|:strs|:syms)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 									<key>name</key>
 									<string>keyword.operator.symbolargs.clojure</string>
 								</dict>
@@ -229,17 +245,32 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>[a-zA-Z+!\-_?0-9*~#@'`]+</string>
+					<string>(:when|:while)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>beginCaptures</key>
 					<dict>
-						<key>0</key>
+						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>variable.parameter.clojure</string>
+							<string>keyword.operator.symbolargs.clojure</string>
 						</dict>
 					</dict>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.structure.binding.symbolargs.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#binding_exp</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>comment</key>
-					<string>FIXME: symbol matching</string>
+					<string>symbol matching</string>
 					<key>end</key>
 					<string>(?=\])</string>
 					<key>name</key>
@@ -247,8 +278,44 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>include</key>
-							<string>#binding_exp</string>
+							<key>begin</key>
+							<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+							<key>end</key>
+							<string>(?&lt;=[a-zA-Z+!\-_?0-9*~#@'`/.$=])(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+							<key>name</key>
+							<string>variable.parameter.clojure</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#keyword</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#operator</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#number</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#symbol</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+							<key>end</key>
+							<string>(?=\])</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#binding_exp</string>
+								</dict>
+							</array>
 						</dict>
 					</array>
 				</dict>
@@ -282,7 +349,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(\(\)|{}|\[\])</string>
+					<string>(\(\)|{}|\[\]|#{})</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -305,7 +372,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?=\()</string>
+					<string>(?=#?\()</string>
 					<key>end</key>
 					<string>(?=\])</string>
 					<key>name</key>
@@ -314,7 +381,7 @@
 					<array>
 						<dict>
 							<key>begin</key>
-							<string>(?=\()</string>
+							<string>(?=#?\()</string>
 							<key>end</key>
 							<string>(?&lt;=\))</string>
 							<key>patterns</key>
@@ -479,9 +546,9 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.])</string>
+					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>comment</key>
-					<string>FIXME: symbol matching</string>
+					<string>symbol matching</string>
 					<key>end</key>
 					<string>(?=\])</string>
 					<key>name</key>
@@ -490,9 +557,9 @@
 					<array>
 						<dict>
 							<key>begin</key>
-							<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.])</string>
+							<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 							<key>end</key>
-							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.])</string>
+							<string>(?&lt;=[a-zA-Z+!\-_?0-9*~#@'`/.$=])(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 							<key>patterns</key>
 							<array>
 								<dict>
@@ -515,7 +582,7 @@
 						</dict>
 						<dict>
 							<key>begin</key>
-							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.])</string>
+							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 							<key>end</key>
 							<string>(?=\])</string>
 							<key>patterns</key>
@@ -640,28 +707,25 @@
 		<key>function</key>
 		<dict>
 			<key>begin</key>
-			<string>\(\s*(\b(defn\-?))(\s)+((\-|[a-zA-Z0-9]|\+|\*|\_|\!|\?)*)</string>
+			<string>\(\s*(defn\-?)\s</string>
 			<key>beginCaptures</key>
 			<dict>
-				<key>2</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>storage.type.function.type.clojure</string>
 				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.clojure</string>
-				</dict>
 			</dict>
-			<key>comment</key>
-			<string>FIXME: symbol matching</string>
 			<key>end</key>
 			<string>\)</string>
 			<key>name</key>
 			<string>meta.function.clojure</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#function_name</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#function_body_comment</string>
@@ -765,6 +829,36 @@
 				</dict>
 			</array>
 		</dict>
+		<key>function_name</key>
+		<dict>
+			<key>begin</key>
+			<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+			<key>comment</key>
+			<string>symbol matching TODO:operator number =&gt; error ?</string>
+			<key>end</key>
+			<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+			<key>name</key>
+			<string>entity.name.function.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#keyword</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#number</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#symbol</string>
+				</dict>
+			</array>
+		</dict>
 		<key>keyword</key>
 		<dict>
 			<key>patterns</key>
@@ -794,10 +888,37 @@
 					<string>support.function.match.clojure</string>
 				</dict>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.mark.clojure</string>
+						</dict>
+					</dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b(associative|branch|class|coll|contains|decimal|delay|distinct|empty|end|even|every|false|float|fn|identical|instance|integer|isa|keyword|list|map|neg|nil|not-any|not-every|number|odd|pos|ratio|reversible|seq|sequential|set|sorted|special-symbol|string|symbol|true|var|zero|vector)\?\b(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b(rational|associative|branch|class|coll|contains|decimal|delay|distinct|empty|end|even|every|false|float|fn|identical|instance|integer|isa|keyword|list|map|neg|nil|not-any|not-every|number|odd|pos|ratio|reversible|seq|sequential|set|sorted|special-symbol|string|symbol|true|var|zero|vector)(\?)(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>support.function.tester.clojure</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.mark.clojure</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.mark.clojure</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?&lt;![*+!_?\-])\b(not(=)|list(\*))(?![*+!_?\-])</string>
+					<key>name</key>
+					<string>support.function.clojure</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -813,7 +934,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(\(\)|{}|\[\])</string>
+					<string>(\(\)|{}|\[\]|#{})</string>
 					<key>name</key>
 					<string>constant.language.clojure</string>
 				</dict>
@@ -837,28 +958,25 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\(\s*(\b(fn))(\s)+((\-|[a-zA-Z0-9]|\+|\*|\_|\!|\?)*)?</string>
+					<string>\(\s*(fn)\s+</string>
 					<key>beginCaptures</key>
 					<dict>
-						<key>2</key>
+						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>storage.type.function.type.clojure</string>
 						</dict>
-						<key>4</key>
-						<dict>
-							<key>name</key>
-							<string>entity.name.function.clojure</string>
-						</dict>
 					</dict>
-					<key>comment</key>
-					<string>FIXME: symbol matching</string>
 					<key>end</key>
 					<string>\)</string>
 					<key>name</key>
 					<string>meta.function.lambda.clojure</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>include</key>
+							<string>#function_name</string>
+						</dict>
 						<dict>
 							<key>include</key>
 							<string>#function_body</string>
@@ -893,28 +1011,25 @@
 		<key>macro</key>
 		<dict>
 			<key>begin</key>
-			<string>\(\s*(\b(defmacro\-?))(\s)+((\-|[a-zA-Z0-9]|\+|\*|\_|\!|\?)*)</string>
+			<string>\(\s*(\b(defmacro\-?))\s+</string>
 			<key>beginCaptures</key>
 			<dict>
-				<key>2</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>storage.type.function.type.clojure</string>
 				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.clojure</string>
-				</dict>
 			</dict>
-			<key>comment</key>
-			<string>FIXME: symbol matching</string>
 			<key>end</key>
 			<string>\)</string>
 			<key>name</key>
 			<string>meta.function.macro.clojure</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#function_name</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#function_body_comment</string>
@@ -1027,7 +1142,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(#\^)([.\w]+)</string>
+					<string>(#\^)([a-zA-Z+!\-_?0-9*/.$=]+)</string>
 					<key>name</key>
 					<string>punctuation.metadata.class.clojure</string>
 				</dict>
@@ -1039,13 +1154,13 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>:tag|:doc|:arglists|:private|:macro|:name|:ns|:inline|:inline-arities|:line|:file</string>
+					<string>(:tag|:doc|:arglists|:private|:macro|:name|:ns|:inline-arities|:inline|:line|:file)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>support.function.keyword.metadata.clojure</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;=:tag)\s+([.\w]+)</string>
+					<string>(?&lt;=:tag)\s+([a-zA-Z+!\-_?0-9*/.$=]+)</string>
 					<key>name</key>
 					<string>entity.name.type.class.java.clojure</string>
 				</dict>
@@ -1116,7 +1231,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>:refer-clojure|:require|:use|:import|:load|:exclude</string>
+					<string>(:refer-clojure|:require|:use|:import|:load|:exclude)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>support.function.constant.namespace.clojure</string>
 				</dict>
@@ -1317,10 +1432,6 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#parameters_variable</string>
-				</dict>
-				<dict>
 					<key>match</key>
 					<string>\&amp;</string>
 					<key>name</key>
@@ -1328,9 +1439,21 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>:as</string>
+					<string>(:as)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>keyword.operator.symbolargs.clojure</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#metadata</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#parameters_variable</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1339,10 +1462,6 @@
 				<dict>
 					<key>include</key>
 					<string>#parameters_map</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#all</string>
 				</dict>
 			</array>
 		</dict>
@@ -1401,7 +1520,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>:as|:or|:keys|:strs|:syms</string>
+					<string>(:as|:or|:keys|:strs|:syms)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>keyword.operator.symbolargs.clojure</string>
 				</dict>
@@ -1421,12 +1540,33 @@
 		</dict>
 		<key>parameters_variable</key>
 		<dict>
+			<key>begin</key>
+			<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 			<key>comment</key>
-			<string>FIXME: symbol matching</string>
-			<key>match</key>
-			<string>([\w_?]|[\w+!\-_?*][\w+!\-_?0-9*]+?)([*+!\-_?](?=[^\w+!\-_?0-9*]))?+</string>
+			<string>symbol matching TODO:operator number =&gt; error ?</string>
+			<key>end</key>
+			<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 			<key>name</key>
 			<string>variable.parameter.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#keyword</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#number</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#symbol</string>
+				</dict>
+			</array>
 		</dict>
 		<key>set</key>
 		<dict>
@@ -1486,7 +1626,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=\()\s*(let|loop|doseq|dotimes|binding)\s+(?=\[)</string>
+					<string>(?&lt;=\()\s*(let|loop|doseq|dotimes|binding|for)\s+(?=\[)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1559,8 +1699,10 @@
 							<string>keyword.operator.symbole.clojure</string>
 						</dict>
 					</dict>
+					<key>comment</key>
+					<string>. is OK in symbol ?</string>
 					<key>match</key>
-					<string>(\:)((\-|[a-zA-Z0-9]|\+|\*|\_|\!|\?)*)</string>
+					<string>(\:)([a-zA-Z+!\-_?0-9*/.$=]+)</string>
 					<key>name</key>
 					<string>constant.string.symbole.clojure</string>
 				</dict>
@@ -1617,25 +1759,43 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>captures</key>
-					<dict>
-						<key>2</key>
+					<key>begin</key>
+					<string>(?=[a-zA-Z+!\-_?0-9*=])</string>
+					<key>end</key>
+					<string>(?![a-zA-Z+!\-_?0-9*=])</string>
+					<key>name</key>
+					<string>source.symbole.clojure</string>
+					<key>patterns</key>
+					<array>
 						<dict>
-							<key>name</key>
-							<string>keyword.other.mark.clojure</string>
-						</dict>
-						<key>6</key>
-						<dict>
+							<key>begin</key>
+							<string>[0-9]</string>
+							<key>end</key>
+							<string>(?![a-zA-Z+!\-_?0-9*=])</string>
 							<key>name</key>
 							<string>invalid.illegal.symbol.clojure</string>
 						</dict>
-					</dict>
-					<key>comment</key>
-					<string>FIXME: symbol matching</string>
-					<key>match</key>
-					<string>([a-zA-Z][a-zA-Z+!\-_?0-9*]*?([*+!\-_?](?=[^a-zA-Z+!\-_?0-9*]))?+)|([!_?*][a-zA-Z+!\-_?0-9*]*)|([+\-](([0-9])|[a-zA-Z+!\-_?])[a-zA-Z+!\-_?0-9*]*)</string>
-					<key>name</key>
-					<string>source.symbole.clojure</string>
+						<dict>
+							<key>begin</key>
+							<string>[a-zA-Z]</string>
+							<key>end</key>
+							<string>([+!\-_?*=])?(?![a-zA-Z+!\-_?0-9*=])</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.mark.clojure</string>
+								</dict>
+							</dict>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>[+!\-_?*=]</string>
+							<key>end</key>
+							<string>(?![a-zA-Z+!\-_?0-9*=])</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -1645,7 +1805,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;=[a-zA-Z+!\-_?0-9*])/(?=[a-zA-Z+!\-_?0-9*])</string>
+					<string>(?&lt;=[a-zA-Z+!\-_?0-9*])(/|\$)(?=[a-zA-Z+!\-_?0-9*])</string>
 					<key>name</key>
 					<string>keyword.operator.qualified.clojure</string>
 				</dict>
