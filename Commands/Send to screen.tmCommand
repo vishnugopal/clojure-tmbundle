@@ -17,7 +17,7 @@ Clojure::Mate.run_current_form_or_line</string>
 	<key>name</key>
 	<string>Run selection</string>
 	<key>output</key>
-	<string>showAsHTML</string>
+	<string>showAsTooltip</string>
 	<key>scope</key>
 	<string>source.clojure</string>
 	<key>uuid</key>
