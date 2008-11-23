@@ -3,8 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(fn [${1:params...}] ${2:body...})$0
-</string>
+	<string>(fn [${1:params...}] ${2:body...})$0</string>
 	<key>name</key>
 	<string>fn</string>
 	<key>scope</key>
