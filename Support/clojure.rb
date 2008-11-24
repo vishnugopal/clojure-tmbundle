@@ -35,7 +35,7 @@ module Clojure
       to_run = pick_form(forms, offset) || ENV["TM_CURRENT_LINE"]
       result = repl.evaluate(to_run)
       
-      show_html(result)
+      show_text(result)
     end
   
     def run_file
@@ -86,7 +86,10 @@ module Clojure
     end
     
     def show_html(result)
-      # TextMate.exit_show_html("<pre>#{result.gsub("<", "&lt;")}</pre>")
+      TextMate.exit_show_html("<pre>#{result.gsub("<", "&lt;")}</pre>")
+    end
+    
+    def show_text(result)
       print result
     end
     
