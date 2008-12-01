@@ -1220,6 +1220,21 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>begin</key>
+					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+					<key>end</key>
+					<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+					<key>name</key>
+					<string>entity.name.namespace.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#symbol</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
 					<key>include</key>
 					<string>#namespace_body</string>
 				</dict>
