@@ -865,7 +865,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b(if|cond|do|let|loop|recur|throw|try|catch|finally)\b(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b((if|cond|do|let|loop|recur|throw|try|catch|finally|new)\b|(set!))(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>keyword.control.clojure</string>
 				</dict>
