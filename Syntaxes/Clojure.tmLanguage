@@ -1660,7 +1660,7 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.java.clojure</string>
+							<string>entity.other.inherited-class.java.clojure</string>
 						</dict>
 					</dict>
 					<key>end</key>
