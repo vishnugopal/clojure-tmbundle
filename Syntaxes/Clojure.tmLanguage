@@ -1647,6 +1647,73 @@
 						</dict>
 					</array>
 				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=\()\s*(proxy)\s+\[([a-zA-Z+!\-_?0-9*/.$=]+)\]\s+(?=\[)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.clojure</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.type.class.java.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>name</key>
+					<string>meta.function.proxy_form.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?=\[)</string>
+							<key>end</key>
+							<string>(?=\))</string>
+							<key>name</key>
+							<string>meta.function.body.proxy_form.clojure</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#parameters</string>
+								</dict>
+								<dict>
+									<key>begin</key>
+									<string>(?&lt;=\])</string>
+									<key>end</key>
+									<string>(?=\))</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>begin</key>
+											<string>\(\s*</string>
+											<key>end</key>
+											<string>\)</string>
+											<key>name</key>
+											<string>meta.function.clojure</string>
+											<key>patterns</key>
+											<array>
+												<dict>
+													<key>include</key>
+													<string>#function_name</string>
+												</dict>
+												<dict>
+													<key>include</key>
+													<string>#function_body_comment</string>
+												</dict>
+											</array>
+										</dict>
+									</array>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
 			</array>
 		</dict>
 		<key>string</key>
