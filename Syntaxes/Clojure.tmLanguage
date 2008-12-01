@@ -865,7 +865,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b((if|cond|do|let|loop|recur|throw|try|catch|finally|new)\b|(set!))(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b((if|cond|do|let|loop|recur|throw|try|catch|finally|new|trampoline)\b|(set!))(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>keyword.control.clojure</string>
 				</dict>
@@ -877,13 +877,13 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b(str|print(ln)?|eval|def|defmacro|defn|quote|var|fn|defmulti|defmethod|map|list|hash-map|vector|agent)\b(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b(str|print(ln)?|eval|def|defmacro|defn|quote|var|fn|defmulti|defmethod|map|list|hash-map|vector|agent|declare|intern|macroexpand|macroexpand-1)\b(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>storage.clojure</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b(-&gt;|\.\.|amap|and|areduce|assert|binding|comment|cond|definline|defmatch|defmethod|defmulti|defn|defn-|defonce|defstruct|delay|doc|doseq|dosync|dotimes|doto|fn|for|if-let|lazy-cons|let|locking|loop|memfn|ns|or|prefer-method|proxy-super|proxy|refer-clojure|remove-method|sync|time|when-first|when-let|when-not|when|with-in-str|with-local-vars|with-open|with-out-str|with-precision)\b(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b(-&gt;|\.\.|amap|and|areduce|assert|binding|comment|cond|definline|defmatch|defmethod|defmulti|defn|defn-|defonce|defstruct|delay|doc|doseq|dosync|dotimes|doto|fn|for|if-let|lazy-cons|let|locking|loop|memfn|ns|or|prefer-method|proxy-super|proxy|refer-clojure|remove-method|sync|time|when-first|when-let|when-not|when|while|with-in-str|with-local-vars|with-open|with-out-str|with-precision)\b(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>support.function.match.clojure</string>
 				</dict>
@@ -897,7 +897,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b(rational|associative|branch|class|coll|contains|decimal|delay|distinct|empty|end|even|every|false|float|fn|identical|instance|integer|isa|keyword|list|map|neg|nil|not-any|not-every|number|odd|pos|ratio|reversible|seq|sequential|set|sorted|special-symbol|string|symbol|true|var|zero|vector)(\?)(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b(rational|associative|branch|class|coll|contains|decimal|delay|distinct|empty|end|even|every|false|float|fn|identical|instance|integer|isa|keyword|list|map|neg|nil|not-any|not-every|number|odd|pos|ratio|reversible|seq|sequential|set|sorted|special-symbol|string|symbol|true|var|zero|vector|ifn)(\?)(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>support.function.tester.clojure</string>
 				</dict>
@@ -922,7 +922,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b(zipper|zipmap|xml-zip|xml-seq|with-meta|vector-zip|vector|vec|var-set|var-get|vals|val|use|update-proxy|update-in|up|union|underive|unchecked-subtract|unchecked-negate|unchecked-multiply|unchecked-inc|unchecked-divide|unchecked-dec|unchecked-add|tree-seq|to-array-2d|to-array|test|take-while|take-nth|symbol|supers|subvec|subseq|subs|struct-map|struct|str|split-with|split-at|sorted-set|sorted-map-by|sorted-map|sort-by|sort|some|slurp|shutdown-agents|short|set-validator|set|seque|seq-zip|seq|send-off|send|select-keys|select|rsubseq|rseq|root|rights|right|rfirst|reverse|resultset-seq|resolve|require|replicate|replace|repeatedly|repeat|rename-keys|rename|remove-ns|remove|rem|refer|ref-set|ref|reduce|read-line|read|re-seq|re-pattern|re-matches|re-matcher|re-groups|re-find|rationalize|rand-int|rand|quot|pvec|psummary|psort|proxy-mappings|project|prn-str|println-str|println|printf|print-str|print|preduce|pr-str|pr|pop|pmin|pmax|pmap|pfilter-nils|pfilter-dupes|peek|pdistinct|path|partition|partial|parse|parents|par|pany|num|nthrest|nth|ns-unmap|ns-unalias|ns-resolve|ns-refers|ns-publics|ns-name|ns-map|ns-interns|ns-imports|ns-aliases|not=|not-empty|not|node|next|newline|namespace|name|min-key|min|meta|merge-with|merge|max-key|max|matchexpand-1|matchexpand|mapcat|map-invert|map|make-node|make-hierarchy|make-array|long-array|long|loaded-libs|load-string|load-reader|load-file|load|list*|list|line-seq|lefts|left|last|keyword|keys|key|join|iterator-seq|into-array|intersection|interpose|interleave|int-array|int|inspect-tree|inspect-table|insert-right|insert-left|insert-child|index|inc|in-ns|import|identity|hash-set|hash-map|hash|get-validator|get-proxy-class|get-in|get|gensym|gen-class|gen-and-save-class|gen-and-load-class|format|force|fnseq|flush|float-array|float|find-var|find-ns|find-doc|find|filter|file-seq|ffirst|eval|enumeration-seq|ensure|empty|edit|drop-while|drop-last|down|double-array|double|dorun|doall|distinct|dissoc|disj|difference|descendants|derive|deref|dec|cycle|create-struct|create-ns|count|construct-proxy|constantly|conj|complement|compare|comparator|comp|commute|clojure.set|clojure.parallel|clojure.inspector|clear-agent-errors|class|children|char|cast|cache-seq|byte|butlast|boolean|bit-xor|bit-test|bit-shift-right|bit-shift-left|bit-set|bit-or|bit-not|bit-flip|bit-clear|bit-and-not|bit-and|bigint|bigdec|bean|bases|await-for|assoc-in|aset-short|aset-long|aset-int|aset-float|aset-double|aset-char|aset-byte|aset-boolean|aset|array-map|apply|append-child|ancestors|alter-var-root|alter|all-ns|alias|alength|aget|agent-errors|agent|add-classpath|aclone|accessor)\b(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b(zipper|zipmap|xml-zip|xml-seq|with-meta|vector-zip|vector|vec|var-set|var-get|vals|val|use|update-proxy|update-in|up|union|underive|unchecked-subtract|unchecked-negate|unchecked-multiply|unchecked-inc|unchecked-divide|unchecked-dec|unchecked-add|tree-seq|to-array-2d|to-array|test|take-while|take-nth|symbol|supers|subvec|subseq|subs|struct-map|struct|str|split-with|split-at|sorted-set|sorted-map-by|sorted-map|sort-by|sort|some|slurp|shutdown-agents|short|set-validator|set|seque|seq-zip|seq|send-off|send|select-keys|select|rsubseq|rseq|root|rights|right|rfirst|reverse|resultset-seq|resolve|require|replicate|replace|repeatedly|repeat|rename-keys|rename|remove-ns|remove|rem|refer|ref-set|ref|reduce|read-string|read-line|read|re-seq|re-pattern|re-matches|re-matcher|re-groups|re-find|rationalize|rand-int|rand|quot|pvec|psummary|psort|proxy-mappings|project|prn-str|println-str|println|printf|print-str|print|preduce|pr-str|pr|pop|pmin|pmax|pmap|pfilter-nils|pfilter-dupes|peek|pdistinct|path|partition|partial|parse|parents|par|pany|num|nthrest|nth|ns-unmap|ns-unalias|ns-resolve|ns-refers|ns-publics|ns-name|ns-map|ns-interns|ns-imports|ns-aliases|not=|not-empty|not|node|next|newline|namespace|name|min-key|min|meta|merge-with|merge|max-key|max|matchexpand-1|matchexpand|mapcat|map-invert|map|make-node|make-hierarchy|make-array|long-array|long|loaded-libs|load-string|load-reader|load-file|load|list*|list|line-seq|lefts|left|last|keyword|keys|key|join|iterator-seq|into-array|intersection|interpose|interleave|int-array|int|inspect-tree|inspect-table|insert-right|insert-left|insert-child|index|inc|in-ns|import|identity|hash-set|hash-map|hash|get-validator|get-proxy-class|get-in|get|gensym|gen-class|gen-and-save-class|gen-and-load-class|format|force|fnseq|flush|float-array|float|find-var|find-ns|find-doc|find|filter|file-seq|ffirst|eval|enumeration-seq|ensure|empty|edit|drop-while|drop-last|down|double-array|double|dorun|doall|distinct|dissoc|disj|difference|descendants|derive|deref|dec|cycle|create-struct|create-ns|count|construct-proxy|constantly|conj|complement|compare|comparator|comp|commute|clojure.set|clojure.parallel|clojure.inspector|clear-agent-errors|class|children|char|cast|cache-seq|byte|butlast|boolean|bit-xor|bit-test|bit-shift-right|bit-shift-left|bit-set|bit-or|bit-not|bit-flip|bit-clear|bit-and-not|bit-and|bigint|bigdec|bean|bases|await-for|assoc-in|aset-short|aset-long|aset-int|aset-float|aset-double|aset-char|aset-byte|aset-boolean|aset|array-map|apply|append-child|ancestors|alter-var-root|alter|all-ns|alias|alength|aget|agent-errors|agent|add-classpath|aclone|accessor|compile|longs|doubles|ints|floats)\b(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>support.function.clojure</string>
 				</dict>
@@ -1664,7 +1664,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=\()\s*(def)\s+</string>
+					<string>(?&lt;=\()\s*(def|declare)\s+</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
