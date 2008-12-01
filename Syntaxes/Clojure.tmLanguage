@@ -32,6 +32,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#function_multi_method</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#macro</string>
 		</dict>
 		<dict>
@@ -52,6 +56,10 @@
 				<dict>
 					<key>include</key>
 					<string>#function</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#function_multi_method</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -389,6 +397,10 @@
 								<dict>
 									<key>include</key>
 									<string>#function</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#function_multi_method</string>
 								</dict>
 								<dict>
 									<key>include</key>
@@ -824,6 +836,42 @@
 					</array>
 				</dict>
 				<dict>
+					<key>include</key>
+					<string>#function_body</string>
+				</dict>
+			</array>
+		</dict>
+		<key>function_multi_method</key>
+		<dict>
+			<key>begin</key>
+			<string>\(\s*(defmethod\-?)\s</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.type.clojure</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\)</string>
+			<key>name</key>
+			<string>meta.function.multi_method.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#function_name</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Need to match a single expression like binding-exp</string>
+					<key>include</key>
+					<string>#all</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Never reached see before</string>
 					<key>include</key>
 					<string>#function_body</string>
 				</dict>
