@@ -1861,7 +1861,7 @@
 							<key>begin</key>
 							<string>[a-zA-Z]</string>
 							<key>end</key>
-							<string>([+!\-_?*=])?(?![a-zA-Z+!\-_?0-9*=])</string>
+							<string>([+!\-_?*=#])?(?![a-zA-Z+!\-_?0-9*=])</string>
 							<key>endCaptures</key>
 							<dict>
 								<key>1</key>
