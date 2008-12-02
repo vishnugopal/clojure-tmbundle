@@ -2032,7 +2032,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=\()\s*(def|declare|defstruct|defonce|defmulti)\s+</string>
+					<string>(?&lt;=\()\s*(def|declare|defstruct|defonce|defmulti|prefer-method)\s+</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
