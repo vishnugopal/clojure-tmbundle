@@ -736,6 +736,14 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#metadata</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\s*</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#function_name</string>
 				</dict>
 				<dict>
@@ -1374,6 +1382,14 @@
 			<string>meta.function.macro.clojure</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#metadata</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\s*</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#function_name</string>
