@@ -1292,6 +1292,12 @@
 					<key>name</key>
 					<string>support.variable.clojure</string>
 				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;![*+!_?\-])\*(agent|allow-unresolved-vars|command-line-args|compile-files|compile-path|err|file|flush-on-newline|in|macro-meta|math-context|ns|out|print-dup|print-length|print-level|print-meta|print-readably|proxy-classes|use-context-classloader|warn-on-reflection)\*(?![*+!_?\-])</string>
+					<key>name</key>
+					<string>support.variable.global.clojure</string>
+				</dict>
 			</array>
 		</dict>
 		<key>lambda</key>
