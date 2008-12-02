@@ -1674,9 +1674,15 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>[-+]?\b[0-9]+((\.[0-9]+([eE][-+]?[0-9]+)?)|((\.[0-9]+)?[eE][-+]?[0-9]+))[M]?\b</string>
+					<string>[-+]?\b[0-9]+((\.[0-9]+([eE][-+]?[0-9]+)?)|((\.[0-9]+)?[eE][-+]?[0-9]+))?\b</string>
 					<key>name</key>
 					<string>constant.numeric.float.clojure</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>[-+]?\b[0-9]+(((\.[0-9])?+([eE][-+]?[0-9]+)?)|((\.[0-9]+)?[eE][-+]?[0-9]+))[M]?\b</string>
+					<key>name</key>
+					<string>constant.numeric.big_decimal.clojure</string>
 				</dict>
 				<dict>
 					<key>captures</key>
