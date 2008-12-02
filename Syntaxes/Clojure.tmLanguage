@@ -1289,12 +1289,16 @@
 					<string>constant.language.clojure</string>
 				</dict>
 				<dict>
+					<key>comment</key>
+					<string>TODO : clean this ?</string>
 					<key>match</key>
 					<string>(?&lt;![*+!_?\-])\b:(private|doc|test|tag)\b(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>storage.modifier.clojure</string>
 				</dict>
 				<dict>
+					<key>comment</key>
+					<string>TODO : clean this ?</string>
 					<key>match</key>
 					<string>(?&lt;![*+!_?\-])\b:(file|line|name|ns|match|argslist)\b(?![*+!_?\-])</string>
 					<key>name</key>
@@ -1520,7 +1524,7 @@
 					<key>match</key>
 					<string>(:tag|:doc|:arglists|:private|:macro|:name|:ns|:inline-arities|:inline|:line|:file)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
-					<string>support.function.keyword.metadata.clojure</string>
+					<string>support.other.keyword.namespace.clojure</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -1612,7 +1616,7 @@
 					<key>match</key>
 					<string>(:refer-clojure|:require|:use|:import|:load|:exclude)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
-					<string>support.function.constant.namespace.clojure</string>
+					<string>support.other.keyword.namespace.clojure</string>
 				</dict>
 				<dict>
 					<key>include</key>
