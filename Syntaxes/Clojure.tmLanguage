@@ -2138,7 +2138,7 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.other.inherited-class.java.clojure</string>
+							<string>entity.other.inherited-class.java.proxy.clojure</string>
 						</dict>
 					</dict>
 					<key>end</key>
@@ -2173,7 +2173,7 @@
 											<key>end</key>
 											<string>\)</string>
 											<key>name</key>
-											<string>meta.function.clojure</string>
+											<string>meta.function.proxy.method.clojure</string>
 											<key>patterns</key>
 											<array>
 												<dict>
