@@ -2076,6 +2076,57 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>(?&lt;=\()\s*((new)\s+|(?=[a-zA-Z][a-zA-Z.]*\.(\s+|$|\))))</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>name</key>
+					<string>meta.function.new_form.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+							<key>end</key>
+							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+							<key>name</key>
+							<string>storage.type.java.clojure</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#symbol</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+							<key>end</key>
+							<string>(?=\))</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#all</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#all</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(?&lt;=\()\s*(proxy)\s+\[([a-zA-Z+!\-_?0-9*/.$=]+)\]\s+(?=\[)</string>
 					<key>beginCaptures</key>
 					<dict>
