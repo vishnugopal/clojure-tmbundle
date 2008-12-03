@@ -2316,12 +2316,18 @@
 					<string>constant.other.java.clojure</string>
 				</dict>
 				<dict>
+					<key>match</key>
+					<string>(?&lt;![a-zA-Z+!\-_?0-9*])\*[a-z\-]{2,}\*(?![a-zA-Z+!\-_?0-9*])</string>
+					<key>name</key>
+					<string>source.symbol.global.clojure</string>
+				</dict>
+				<dict>
 					<key>begin</key>
 					<string>(?=[a-zA-Z+!\-_?0-9*=])</string>
 					<key>end</key>
 					<string>(?![a-zA-Z+!\-_?0-9*=])</string>
 					<key>name</key>
-					<string>source.symbole.clojure</string>
+					<string>source.symbol.clojure</string>
 					<key>patterns</key>
 					<array>
 						<dict>
