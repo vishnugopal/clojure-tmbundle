@@ -772,8 +772,19 @@
 					</array>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#parameters_body</string>
+					<key>begin</key>
+					<string>(?=\[)</string>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>name</key>
+					<string>meta.function.body.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#parameters_body</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
@@ -1856,6 +1867,8 @@
 		</dict>
 		<key>parameters_body</key>
 		<dict>
+			<key>name</key>
+			<string>meta.function.body</string>
 			<key>patterns</key>
 			<array>
 				<dict>
