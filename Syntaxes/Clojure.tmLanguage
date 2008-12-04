@@ -2318,18 +2318,13 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=\()\s*(proxy)\s+\[([a-zA-Z+!\-_?0-9*/.$=]+)\]\s+(?=\[)</string>
+					<string>(?&lt;=\()\s*(proxy)\s+</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>keyword.control.clojure</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>entity.other.inherited-class.java.proxy.clojure</string>
 						</dict>
 					</dict>
 					<key>end</key>
@@ -2343,13 +2338,24 @@
 							<string>(?=\[)</string>
 							<key>end</key>
 							<string>(?=\))</string>
-							<key>name</key>
-							<string>meta.function.body.proxy_form.clojure</string>
 							<key>patterns</key>
 							<array>
 								<dict>
-									<key>include</key>
-									<string>#parameters</string>
+									<key>begin</key>
+									<string>\[</string>
+									<key>end</key>
+									<string>\]</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#symbol_java_class</string>
+										</dict>
+										<dict>
+											<key>include</key>
+											<string>#all</string>
+										</dict>
+									</array>
 								</dict>
 								<dict>
 									<key>begin</key>
@@ -2360,20 +2366,44 @@
 									<array>
 										<dict>
 											<key>begin</key>
-											<string>\(\s*</string>
+											<string>(?=\[)</string>
 											<key>end</key>
-											<string>\)</string>
+											<string>(?=\))</string>
 											<key>name</key>
-											<string>meta.function.proxy.method.clojure</string>
+											<string>meta.function.body.proxy_form.clojure</string>
 											<key>patterns</key>
 											<array>
 												<dict>
 													<key>include</key>
-													<string>#function_name</string>
+													<string>#parameters</string>
 												</dict>
 												<dict>
-													<key>include</key>
-													<string>#function_body_comment</string>
+													<key>begin</key>
+													<string>(?&lt;=\])</string>
+													<key>end</key>
+													<string>(?=\))</string>
+													<key>patterns</key>
+													<array>
+														<dict>
+															<key>begin</key>
+															<string>\(\s*</string>
+															<key>end</key>
+															<string>\)</string>
+															<key>name</key>
+															<string>meta.function.proxy.method.clojure</string>
+															<key>patterns</key>
+															<array>
+																<dict>
+																	<key>include</key>
+																	<string>#function_name</string>
+																</dict>
+																<dict>
+																	<key>include</key>
+																	<string>#function_body_comment</string>
+																</dict>
+															</array>
+														</dict>
+													</array>
 												</dict>
 											</array>
 										</dict>
