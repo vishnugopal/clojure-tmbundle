@@ -18,11 +18,13 @@ Clojure::Mate.connect_terminal</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
-	<string>~@r</string>
+	<string>~@R</string>
 	<key>name</key>
 	<string>Open REPL</string>
 	<key>output</key>
 	<string>discard</string>
+	<key>scope</key>
+	<string>source.clojure</string>
 	<key>uuid</key>
 	<string>4317DEFD-FB99-44EB-956C-6EA72E5314D7</string>
 </dict>
