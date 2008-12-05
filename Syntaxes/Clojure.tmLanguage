@@ -2654,7 +2654,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=\()\s*((set(\!))\s+)</string>
+					<string>(?&lt;=\()\s*(((set|swap|compare-and-set)(\!))\s+)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>2</key>
