@@ -1199,7 +1199,7 @@
 			<key>begin</key>
 			<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 			<key>comment</key>
-			<string>symbol matching TODO:operator number =&gt; error ?</string>
+			<string>symbol matching</string>
 			<key>end</key>
 			<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 			<key>name</key>
@@ -1215,8 +1215,25 @@
 					<string>#operator</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#number</string>
+					<key>begin</key>
+					<string>-(?=[a-zA-Z+!\-_?*~#@'`/.$=])</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.prefix.genclass.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#symbol</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>include</key>
