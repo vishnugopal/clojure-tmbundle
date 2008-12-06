@@ -13,6 +13,7 @@ cat &lt;&lt;SNIPPET
 	"\${2:Docstring for $NAME.}"
 	[\${3:params*}]
 	\$4)
+
 SNIPPET</string>
 	<key>fallbackInput</key>
 	<string>word</string>
