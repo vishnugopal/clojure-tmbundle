@@ -25,7 +25,7 @@ SNIPPET</string>
 	<key>output</key>
 	<string>insertAsSnippet</string>
 	<key>scope</key>
-	<string>source.clojure</string>
+	<string>source.clojure - meta</string>
 	<key>uuid</key>
 	<string>32C9142F-D65D-4265-AFAB-B3BA76EB6561</string>
 </dict>
