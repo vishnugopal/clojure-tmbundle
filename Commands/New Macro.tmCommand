@@ -11,8 +11,8 @@ NAME="${TM_SELECTED_TEXT:-${TM_CURRENT_WORD:-name}}"
 cat &lt;&lt;SNIPPET
 (defmacro $NAME
 	"\${2:Docstring for $NAME.}"
-	[\${3:parameters...}]
-	\${4:body...})
+	[\${3:params*}]
+	\$4)
 SNIPPET</string>
 	<key>fallbackInput</key>
 	<string>word</string>
