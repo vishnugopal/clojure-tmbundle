@@ -130,7 +130,7 @@
 								</dict>
 							</dict>
 							<key>name</key>
-							<string>meta.function.parameters.vector.clojure</string>
+							<string>meta.parameters.vector.clojure</string>
 							<key>patterns</key>
 							<array>
 								<dict>
@@ -730,6 +730,14 @@
 			</dict>
 			<key>end</key>
 			<string>\)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.terminator.function.clojure</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>meta.function.clojure</string>
 			<key>patterns</key>
@@ -762,7 +770,7 @@
 					<key>end</key>
 					<string>\)</string>
 					<key>name</key>
-					<string>meta.function.body.clojure</string>
+					<string>meta.function.body.code.clojure</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -2162,7 +2170,7 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>meta.function.parameters.vector.clojure</string>
+			<string>meta.parameters.vector.clojure</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -2207,13 +2215,15 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#parameters</string>
+					<string>#parameters_function</string>
 				</dict>
 				<dict>
 					<key>begin</key>
 					<string>(?&lt;=\])</string>
 					<key>end</key>
 					<string>(?=\))</string>
+					<key>name</key>
+					<string>meta.function.body.code.clojure</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -2221,6 +2231,66 @@
 							<string>#all</string>
 						</dict>
 					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>parameters_function</key>
+		<dict>
+			<key>begin</key>
+			<string>\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.vector.begin.clojure</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.vector.end.clojure</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.function.parameters.vector.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\&amp;</string>
+					<key>name</key>
+					<string>keyword.operator.varargs.clojure</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(:as)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+					<key>name</key>
+					<string>keyword.operator.symbolargs.clojure</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#metadata</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#parameters_variable</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#parameters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#parameters_map</string>
 				</dict>
 			</array>
 		</dict>
@@ -2757,8 +2827,19 @@
 									<key>patterns</key>
 									<array>
 										<dict>
-											<key>include</key>
-											<string>#symbol_java_class</string>
+											<key>begin</key>
+											<string>(?=([a-z]+\.)*[A-Z][a-zA-Z]*)</string>
+											<key>end</key>
+											<string>(?![a-zA-Z.])</string>
+											<key>name</key>
+											<string>entity.other.inherited-class.java.proxy.clojure</string>
+											<key>patterns</key>
+											<array>
+												<dict>
+													<key>include</key>
+													<string>#symbol</string>
+												</dict>
+											</array>
 										</dict>
 										<dict>
 											<key>include</key>
