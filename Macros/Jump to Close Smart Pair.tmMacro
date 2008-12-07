@@ -22,7 +22,7 @@
 	<key>name</key>
 	<string>Jump to Close Smart Pair</string>
 	<key>scope</key>
-	<string>meta</string>
+	<string>source.clojure meta</string>
 	<key>scopeType</key>
 	<string>local</string>
 	<key>uuid</key>

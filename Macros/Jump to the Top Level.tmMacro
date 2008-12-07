@@ -45,7 +45,7 @@
 	<key>name</key>
 	<string>Jump to the Top Level</string>
 	<key>scope</key>
-	<string>meta</string>
+	<string>source.clojure meta</string>
 	<key>uuid</key>
 	<string>FA6AD535-0761-4C1A-BFAA-58D29DE44CB9</string>
 </dict>
