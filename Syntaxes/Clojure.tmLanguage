@@ -659,18 +659,37 @@
 		</dict>
 		<key>comment</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.clojure</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(;;).*$\n?</string>
 					<key>name</key>
-					<string>punctuation.definition.comment.clojure</string>
+					<string>comment.line.semicolon.double.clojure</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>(;).*$\n?</string>
-			<key>name</key>
-			<string>comment.line.semicolon.clojure</string>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.clojure</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(;).*$\n?</string>
+					<key>name</key>
+					<string>comment.line.semicolon.clojure</string>
+				</dict>
+			</array>
 		</dict>
 		<key>expr</key>
 		<dict>
