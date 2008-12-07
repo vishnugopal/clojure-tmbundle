@@ -1457,7 +1457,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>:(init|main|factory|state|prefix|load-impl-ns|implements|constructors|methods|exposes)</string>
+					<string>:(init|main|factory|state|prefix|load-impl-ns|implements|constructors|methods|exposes|impl-ns)</string>
 				</dict>
 				<dict>
 					<key>include</key>
