@@ -744,6 +744,10 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#metadata</string>
 				</dict>
 				<dict>
@@ -886,6 +890,10 @@
 			<string>meta.function.multi_method.clojure</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
 				<dict>
 					<key>begin</key>
 					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
@@ -1665,6 +1673,10 @@
 					<array>
 						<dict>
 							<key>include</key>
+							<string>#comment</string>
+						</dict>
+						<dict>
+							<key>include</key>
 							<string>#function_name</string>
 						</dict>
 						<dict>
@@ -1716,6 +1728,10 @@
 			<string>meta.function.macro.clojure</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#metadata</string>
@@ -2813,12 +2829,20 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>include</key>
+							<string>#comment</string>
+						</dict>
+						<dict>
 							<key>begin</key>
 							<string>(?=\[)</string>
 							<key>end</key>
 							<string>(?=\))</string>
 							<key>patterns</key>
 							<array>
+								<dict>
+									<key>include</key>
+									<string>#comment</string>
+								</dict>
 								<dict>
 									<key>begin</key>
 									<string>\[</string>
@@ -2855,6 +2879,10 @@
 									<key>patterns</key>
 									<array>
 										<dict>
+											<key>include</key>
+											<string>#comment</string>
+										</dict>
+										<dict>
 											<key>begin</key>
 											<string>(?=\[)</string>
 											<key>end</key>
@@ -2863,6 +2891,10 @@
 											<string>meta.function.body.proxy_form.clojure</string>
 											<key>patterns</key>
 											<array>
+												<dict>
+													<key>include</key>
+													<string>#comment</string>
+												</dict>
 												<dict>
 													<key>include</key>
 													<string>#parameters</string>
@@ -2875,6 +2907,10 @@
 													<key>patterns</key>
 													<array>
 														<dict>
+															<key>include</key>
+															<string>#comment</string>
+														</dict>
+														<dict>
 															<key>begin</key>
 															<string>\(\s*</string>
 															<key>end</key>
@@ -2883,6 +2919,10 @@
 															<string>meta.function.proxy.method.clojure</string>
 															<key>patterns</key>
 															<array>
+																<dict>
+																	<key>include</key>
+																	<string>#comment</string>
+																</dict>
 																<dict>
 																	<key>include</key>
 																	<string>#function_name</string>
