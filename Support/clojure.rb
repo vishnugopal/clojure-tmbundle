@@ -59,6 +59,12 @@ module Clojure
       get_repl.evaluate("(macroexpand-1 '#{text})")
     end
     
+    def execute_clojure
+      text = STDIN.read
+      
+      get_repl.evaluate(text)
+    end
+    
     def connect_terminal
       get_repl.connect_terminal
       TextMate.exit_discard
