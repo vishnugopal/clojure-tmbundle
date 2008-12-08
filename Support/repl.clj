@@ -6,7 +6,7 @@
 (use 'clojure.contrib.duck-streams)
  
 (defn on-thread [f]
-  (doto (new Thread f) (start)))
+  (doto (new Thread f) (.start)))
  
 (defn create-server 
   "creates and returns a server socket on port, will pass the client
