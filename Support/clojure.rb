@@ -53,6 +53,12 @@ module Clojure
       show_html get_repl.evaluate("(doc #{text})")
     end
     
+    def macroexpand_1
+      text = STDIN.read
+      
+      get_repl.evaluate("(macroexpand-1 '#{text})")
+    end
+    
     def connect_terminal
       get_repl.connect_terminal
       TextMate.exit_discard
