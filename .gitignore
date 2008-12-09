@@ -1,1 +1,5 @@
 .DS_Store
+Vendor/clojure/*
+Vendor/clojure-contrib/*
+Vendor/clojure.jar
+Vendor/clojure-contrib.jar

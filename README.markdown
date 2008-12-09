@@ -20,6 +20,11 @@ Run this:
 	$ git clone git://github.com/stephenroller/clojure-tmbundle.git Clojure.tmbundle
 	$ osascript -e 'tell app "TextMate" to reload bundles'
 
+To fetch and compile Clojure and Clojure-contrib from sourceforge :
+
+	$ ./Vendor/clj-update-and-build
+
+SVN may ask for adding sourceforge certificate.
 
 ## Future goals
 
