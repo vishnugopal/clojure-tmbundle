@@ -53,6 +53,24 @@ module Clojure
       show_html get_repl.evaluate("(doc #{text})")
     end
     
+    def get_classpath
+      text = STDIN.read
+      
+      classpath = get_repl.evaluate("(System/getProperty \"java.class.path\")").
+                    chomp.
+                    gsub(/^"(.*)"$/,'\1').
+                    split(':').
+                    map { |p| File.expand_path(p) }.
+                    join("\n")
+      
+      %w{TM_BUNDLE_SUPPORT TM_BUNDLE_PATH TM_PROJECT_DIRECTORY}.each do |e|
+        classpath.gsub!(/^#{ENV[e]}/,"$#{e}")
+      end
+      
+      show_html("CLASSPATH:\n\n"+
+                classpath)
+    end
+    
     def macroexpand_1
       text = STDIN.read
       
