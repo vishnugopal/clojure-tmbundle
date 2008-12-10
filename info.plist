@@ -4,6 +4,17 @@
 <dict>
 	<key>mainMenu</key>
 	<dict>
+		<key>excludedItems</key>
+		<array>
+			<string>CA5DB37C-16E7-4382-86E1-FA390B92EF52</string>
+			<string>49692CFD-5B04-4DC4-B209-B08FAC3B6123</string>
+			<string>58A49426-70D3-4053-BF91-08B2538CCDFE</string>
+			<string>4E14E86F-40EB-48CD-815D-06EE01874DDE</string>
+			<string>6F15B8D0-6A53-440B-9FC1-5D34EB4F7547</string>
+			<string>17B02FE4-C15C-4726-AC30-2489ABC9DFFF</string>
+			<string>4A2F6F0A-E368-4542-8BD6-C83199B374E4</string>
+			<string>20C3980B-33FC-4043-B64D-7B140319B627</string>
+		</array>
 		<key>items</key>
 		<array>
 			<string>B22B0223-9874-4EBE-807C-F99D559D108D</string>
@@ -15,17 +26,77 @@
 			<string>------------------------------------</string>
 			<string>32C9142F-D65D-4265-AFAB-B3BA76EB6561</string>
 			<string>C8DA7A11-A28A-45FD-B9F6-D25940154E8E</string>
-			<string>3773F876-53A8-46D3-8CB1-053CB8F29373</string>
-			<string>95534E96-D85B-4E0B-8A29-7D9C50D79357</string>
-			<string>283BDF9E-E679-49D0-AF16-1EF1C02B1754</string>
-			<string>662FA14B-C0FD-4AB9-A3C4-A8C76DFC8683</string>
-			<string>0B0996D0-DA76-4672-B389-9FB54D8715C2</string>
-			<string>73D0E49B-F37D-4F52-B2F4-84DAA64FA214</string>
-			<string>67B1A4D1-0805-4B58-AB92-8C05628607FC</string>
-			<string>468C692F-0D77-4B56-8D20-2A1B31138623</string>
+			<string>77180EFB-A6D6-4BA6-AC44-E87CACBC7BF3</string>
+			<string>953A9F8B-7B99-48D3-98F1-AFAF7C7DEABE</string>
+			<string>------------------------------------</string>
+			<string>FA6AD535-0761-4C1A-BFAA-58D29DE44CB9</string>
+			<string>A3C6C0D6-3C92-4CE2-BEDE-384349BF0EB3</string>
+			<string>671282CE-B724-4E42-88D8-BADCB521C06D</string>
+			<string>------------------------------------</string>
+			<string>E6618622-0CD6-4168-AC5A-58430CDB993F</string>
+			<string>F20CAC94-37AD-464D-9688-67641BEC9740</string>
+			<string>CFBFC6CB-073B-408E-9C3C-F5DC44F5E908</string>
+			<string>C5A48300-6CB1-4B2D-83E5-4689A1CDA5C4</string>
+			<string>------------------------------------</string>
+			<string>CB0D9444-0BC1-4661-BB68-7195859A7F99</string>
+			<string>C2469123-D13D-4865-81A1-FB28D4DD805A</string>
 		</array>
 		<key>submenus</key>
-		<dict/>
+		<dict>
+			<key>C5A48300-6CB1-4B2D-83E5-4689A1CDA5C4</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>25D2B51D-F088-4108-A0D1-A2511A491040</string>
+					<string>52358977-8819-4AD0-8949-C4278C8B22B5</string>
+					<string>E284D107-7D11-463B-BA8D-409D0FE822D9</string>
+					<string>64349E99-EE38-4BC8-8741-3B7A1C1D94C1</string>
+				</array>
+				<key>name</key>
+				<string>Declarations</string>
+			</dict>
+			<key>CFBFC6CB-073B-408E-9C3C-F5DC44F5E908</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>0B0996D0-DA76-4672-B389-9FB54D8715C2</string>
+					<string>73D0E49B-F37D-4F52-B2F4-84DAA64FA214</string>
+					<string>468C692F-0D77-4B56-8D20-2A1B31138623</string>
+					<string>3D645CA0-B8FE-4260-821F-CC32ACE51750</string>
+				</array>
+				<key>name</key>
+				<string>Flow control</string>
+			</dict>
+			<key>E6618622-0CD6-4168-AC5A-58430CDB993F</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>3773F876-53A8-46D3-8CB1-053CB8F29373</string>
+					<string>95534E96-D85B-4E0B-8A29-7D9C50D79357</string>
+					<string>283BDF9E-E679-49D0-AF16-1EF1C02B1754</string>
+					<string>662FA14B-C0FD-4AB9-A3C4-A8C76DFC8683</string>
+					<string>A20A307A-65B6-4086-8D57-0B3E4BC1C554</string>
+					<string>673B988A-5079-4E62-B097-5C2113B4F26D</string>
+					<string>4230816E-F9B3-41E8-A8B4-6A6E26FB7C8E</string>
+					<string>3C97CCB6-02BA-47EB-8D56-2E243042BAB6</string>
+					<string>1972D288-9766-454E-A1A7-C9A7527CFEF7</string>
+				</array>
+				<key>name</key>
+				<string>Definitions</string>
+			</dict>
+			<key>F20CAC94-37AD-464D-9688-67641BEC9740</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>67B1A4D1-0805-4B58-AB92-8C05628607FC</string>
+					<string>C552FD3B-3147-4257-A231-F0D4ACD4EE44</string>
+					<string>86E1B18E-E636-40D0-8201-9739F699DE34</string>
+					<string>AB78BD98-CB02-4574-978C-8A051A5AE144</string>
+				</array>
+				<key>name</key>
+				<string>Bindings</string>
+			</dict>
+		</dict>
 	</dict>
 	<key>name</key>
 	<string>Clojure</string>
