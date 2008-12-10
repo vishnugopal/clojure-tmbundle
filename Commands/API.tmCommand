@@ -5,7 +5,11 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>echo "&lt;meta http-equiv='Refresh' content='0;URL=http://clj-doc.s3.amazonaws.com/tmp/doc-1116/index.html'&gt;"
+	<string>if [[ -e "$TM_BUNDLE_PATH/Vendor/clojure-documentation/index.html" ]]; then
+	echo "&lt;meta http-equiv='Refresh' content='0;URL=tm-file://$TM_BUNDLE_PATH/Vendor/clojure-documentation/index.html'&gt;"
+else
+	echo "&lt;meta http-equiv='Refresh' content='0;URL=http://clj-doc.s3.amazonaws.com/tmp/doc-1116/index.html'&gt;"
+fi
 </string>
 	<key>fallbackInput</key>
 	<string>word</string>
