@@ -60,7 +60,7 @@ function build {
 MSG
 	cd "$name"
 	(ant $* clean jar) ||
-	(	cat <<-MSG
+	( cat <<-MSG
 			
 			!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			!! Failed build of $name ${1:+ with option : $*}
@@ -72,6 +72,62 @@ MSG
 )
 }
 
+function update_submodule {
+(
+	cd "$script_path_only" &&
+	cd .. &&
+	git submodule update --init &&
+	cat <<-MSG
+		
+		=====================================================
+		== CheckOut clj-doc,clj-html,clj-html-helpers
+		== from github
+		=====================================================
+		
+MSG
+) || (
+cat <<-MSG
+	
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	!! Failed update of clj-doc,clj-html,clj-html-helpers
+	!! from github
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+MSG
+exit 1
+)
+}
+
+function update_doc {
+(
+	if [[ -d clojure-documentation ]]; then
+		rm -rf clojure-documentation || exit 1
+	fi
+	cd clj-doc &&
+	(ant -q -Dclojure_jar=../clojure.jar -Dclojure_contrib_jar=../clojure-contrib.jar)
+)
+#TODO : Fixe return code
+if [[ -e "$script_path_only/clojure-documentation/index.html" ]]; then
+cat <<-MSG
+	
+	=====================================================
+	== Build documentation for clojure and clojure-contrib
+	=====================================================
+	
+MSG
+else
+cat <<-MSG
+	
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	!! Failed documentation generation
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+MSG
+exit 1
+fi
+}
+
+(
 svn_update clojure &&
 svn_update clojure-contrib &&
 build clojure &&
@@ -85,3 +141,4 @@ cat <<-MSG
 	=====================================================
 
 MSG
+) && update_submodule && update_doc
