@@ -18,6 +18,19 @@ class Clojure::REPL
     ENV['CLOJURE_HOME'] = vendor_dir
     ENV['REPL_PORT_FILE'] = port_file
     
+    if not(File.exist?("#{vendor_dir}/clojure.jar"))
+      TextMate::UI.alert(:critical,"Error : missing clojure.jar",
+      <<-MSG
+        Didn't find clojure.jar file
+        In : #{vendor_dir}
+
+        You can build it by running this command :
+        #{vendor_dir}/clj-update-and-build
+        MSG
+      )
+      exit(1)
+    end
+    
     cmd = File.expand_path(vendor_dir + "/clj")
     script = File.expand_path(File.dirname(__FILE__) + "/../repl.clj")
 

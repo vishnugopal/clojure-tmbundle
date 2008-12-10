@@ -25,6 +25,11 @@ end
   clojure-contrib.jar 
 ).map{|j| "#{CLOJURE_HOME}/#{j}"}
 
+if not(File.exist?("#{CLOJURE_HOME}/clojure.jar"))
+  puts("clojure.jar not found in : #{CLOJURE_HOME}")
+  exit(1)
+end
+
 # ========================
 # = Command line parsing =
 # ========================
