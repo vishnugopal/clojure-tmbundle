@@ -2678,34 +2678,31 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>begin</key>
-							<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
-							<key>end</key>
-							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#symbol_java_class</string>
-								</dict>
-							</array>
+							<key>include</key>
+							<string>#symbol_java_class_form_body</string>
 						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=\()\s*(cast)\s+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
 						<dict>
-							<key>begin</key>
-							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
-							<key>end</key>
-							<string>(?=\))</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#all</string>
-								</dict>
-							</array>
+							<key>name</key>
+							<string>support.function.clojure</string>
 						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>name</key>
+					<string>meta.function.cast_form.clojure</string>
+					<key>patterns</key>
+					<array>
 						<dict>
 							<key>include</key>
-							<string>#all</string>
+							<string>#symbol_java_class_form_body</string>
 						</dict>
 					</array>
 				</dict>
@@ -3249,6 +3246,42 @@
 				<dict>
 					<key>include</key>
 					<string>#symbol</string>
+				</dict>
+			</array>
+		</dict>
+		<key>symbol_java_class_form_body</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+					<key>end</key>
+					<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#symbol_java_class</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#all</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#all</string>
 				</dict>
 			</array>
 		</dict>
