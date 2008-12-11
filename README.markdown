@@ -26,9 +26,9 @@ An update script will :
 * Get library for generating off-line documentation from github.
 * Build Clojure and documentation.
 
-	$ ./Clojure.tmbundle/Vendor/clj-update-and-build
+Run this :
 
-SVN may ask for adding sourceforge certificate.
+	$ ./Clojure.tmbundle/Vendor/clj-update-and-build
 
 ## Future goals
 
