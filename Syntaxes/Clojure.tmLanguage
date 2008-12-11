@@ -2054,7 +2054,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(:refer-clojure|:require|:use|:import|:load|:exclude)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+					<string>(:refer-clojure|:require|:use|:import|:load|:exclude|:as|:only)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>support.other.keyword.namespace.clojure</string>
 				</dict>
