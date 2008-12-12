@@ -27,10 +27,12 @@
 ;;  This parameter is used to specify the signatures of the methods of
 ;;  the generated interface.  Do not repeat superinterface signatures
 ;;  here.
-	)/}})${34:${35:${36:${37:${38:${39:${40:${41:
+	)/}}${34:${35:${36:${37:${38:${39:${40:${41:
 ;;  Remove this to clear previous comment
 ;;  From Clojure documentation
-;;  Copyright (c) Rich Hickey. All rights reserved.}}}}}}}}$0</string>
+;;  Copyright (c) Rich Hickey. All rights reserved.
+    }}}}}}}})
+$0</string>
 	<key>name</key>
 	<string>gen-interface</string>
 	<key>scope</key>

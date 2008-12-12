@@ -102,10 +102,12 @@
 ;;  to reference the load code for the implementing namespace. Should be
 ;;  true when implementing-ns is the default, false if you intend to
 ;;  load the code via some other method.
-;;  )/}})${50:${51:${52:${53:${54:${55:${56:${57:
+;;  )/}}${50:${51:${52:${53:${54:${55:${56:${57:
 ;;  Remove this to clear previous comment
 ;;  From Clojure documentation
-;;  Copyright (c) Rich Hickey. All rights reserved.}}}}}}}}$0</string>
+;;  Copyright (c) Rich Hickey. All rights reserved.
+    }}}}}}}})
+$0</string>
 	<key>name</key>
 	<string>gen-class</string>
 	<key>scope</key>
