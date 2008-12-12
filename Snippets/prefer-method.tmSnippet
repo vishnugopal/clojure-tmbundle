@@ -3,8 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(prefer-method $1)
-$0</string>
+	<string>(prefer-method $0)</string>
 	<key>name</key>
 	<string>prefer-method</string>
 	<key>scope</key>

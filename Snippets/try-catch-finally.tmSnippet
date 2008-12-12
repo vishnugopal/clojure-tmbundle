@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(try $1
-  (catch ${2:Class} ${3:e} $4)${5:
-  (finally $6)})$0</string>
+	<string>(try $0
+  (catch ${2:Class} ${3:e}
+    )${1:
+  (finally
+    )})</string>
 	<key>name</key>
 	<string>try-catch-finally</string>
 	<key>scope</key>

@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(with-open [${1:bindings*}]
+	<string>(if-not ${1:cond} 
   $0)</string>
 	<key>name</key>
-	<string>with-open</string>
+	<string>if-not</string>
 	<key>scope</key>
 	<string>source.clojure</string>
 	<key>tabTrigger</key>
-	<string>open</string>
+	<string>ifn</string>
 	<key>uuid</key>
-	<string>AB78BD98-CB02-4574-978C-8A051A5AE144</string>
+	<string>89088072-EC09-4D44-B229-9089649C4F40</string>
 </dict>
 </plist>

@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>(comment
 
-${1:;; Ignores body, yields nil}
+${0:;; Ignores body, yields nil}
 
 )
 </string>

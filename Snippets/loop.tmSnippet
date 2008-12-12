@@ -4,8 +4,7 @@
 <dict>
 	<key>content</key>
 	<string>(loop [${1:bindings*}]
-	$2)$0
-</string>
+  $0)</string>
 	<key>name</key>
 	<string>loop</string>
 	<key>scope</key>

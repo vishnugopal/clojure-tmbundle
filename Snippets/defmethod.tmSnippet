@@ -3,10 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(defmethod ${1:name} ${2:Value} [${3:params*}]
-	$4)
-
-$0</string>
+	<string>(defmethod ${1:multifn dispatch-val} [${2:params*}]
+  $0)</string>
 	<key>name</key>
 	<string>defmethod</string>
 	<key>scope</key>

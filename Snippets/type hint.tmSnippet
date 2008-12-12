@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>#^${1:Class} $0</string>
+	<string>#^${0:Class}</string>
 	<key>keyEquivalent</key>
 	<string>#</string>
 	<key>name</key>

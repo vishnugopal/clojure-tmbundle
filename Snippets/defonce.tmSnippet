@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(defonce ${1:name} $2)$0</string>
+	<string>(defonce ${0:name expr})</string>
 	<key>name</key>
 	<string>defonce</string>
 	<key>scope</key>

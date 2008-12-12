@@ -3,8 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(defmulti ${1:name} ${2:(fn [${3:params*}] $4)})
-$0</string>
+	<string>(defmulti ${1:name} ${2:(fn [${3:params*}] $0)})</string>
 	<key>name</key>
 	<string>defmulti</string>
 	<key>scope</key>
