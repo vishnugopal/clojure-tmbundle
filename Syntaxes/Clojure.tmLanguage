@@ -1471,7 +1471,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>:(init|main|factory|state|prefix|load-impl-ns|implements|constructors|methods|exposes|impl-ns|exposes-methods)</string>
+					<string>:(init|main|factory|state|prefix|load-impl-ns|implements|constructors|exposes|impl-ns|exposes-methods|methods)(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 				</dict>
 				<dict>
 					<key>include</key>
