@@ -34,7 +34,7 @@
     }}}}}}}})
 $0</string>
 	<key>name</key>
-	<string>gen-interface</string>
+	<string>gen-interface ;doc</string>
 	<key>scope</key>
 	<string>source.clojure</string>
 	<key>tabTrigger</key>

@@ -109,7 +109,7 @@
     }}}}}}}})
 $0</string>
 	<key>name</key>
-	<string>gen-class</string>
+	<string>gen-class ;doc</string>
 	<key>scope</key>
 	<string>source.clojure</string>
 	<key>tabTrigger</key>
