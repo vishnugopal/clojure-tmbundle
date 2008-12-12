@@ -1471,7 +1471,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>:(init|main|factory|state|prefix|load-impl-ns|implements|constructors|methods|exposes|impl-ns)</string>
+					<string>:(init|main|factory|state|prefix|load-impl-ns|implements|constructors|methods|exposes|impl-ns|exposes-methods)</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1647,7 +1647,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b((if|cond|do|let|loop|recur|throw|try|catch|finally|new|trampoline)\b|(set!|swap!|compare-and-set!))(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b((if-not|if|cond|do|let|loop|recur|throw|try|catch|finally|new|trampoline)\b|(set!|swap!|compare-and-set!))(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>keyword.control.clojure</string>
 				</dict>
@@ -1665,7 +1665,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b(-&gt;|\.\.|amap|and|areduce|assert|binding|comment|cond|definline|defmatch|defmethod|defmulti|defn|defn-|defonce|defstruct|delay|doc|doseq|dosync|dotimes|doto|fn|for|if-let|lazy-cons|let|locking|loop|memfn|ns|or|prefer-method|proxy-super|proxy|refer-clojure|remove-method|sync|time|when-first|when-let|when-not|when|while|with-in-str|with-local-vars|with-open|with-out-str|with-precision)\b(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b(-&gt;|\.\.|amap|and|areduce|assert|binding|comment|cond|definline|defmatch|defmethod|defmulti|defn|defn-|defonce|defstruct|delay|doc|doseq|dosync|dotimes|doto|fn|for|if-let|lazy-cons|let|locking|loop|memfn|ns|or|prefer-method|proxy-super|proxy|refer-clojure|remove-method|sync|time|when-first|when-let|when-not|when|while|with-in-str|with-local-vars|with-open|with-out-str|with-precision|memoize)\b(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>support.function.match.clojure</string>
 				</dict>
@@ -1696,9 +1696,14 @@
 							<key>name</key>
 							<string>keyword.other.mark.clojure</string>
 						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.mark.clojure</string>
+						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?&lt;![*+!_?\-])\b(not(=)|list(\*))(?![*+!_?\-])</string>
+					<string>(?&lt;![*+!_?\-])\b(not(=)|list(\*)|io(!))(?![*+!_?\-])</string>
 					<key>name</key>
 					<string>support.function.clojure</string>
 				</dict>
