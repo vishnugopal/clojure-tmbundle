@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(if-let [${1:binding-form  test}] 
+	<string>(when-first [${1:binding-x xs}] 
   $0)</string>
 	<key>name</key>
-	<string>if-let</string>
+	<string>when-first</string>
 	<key>scope</key>
 	<string>source.clojure</string>
 	<key>tabTrigger</key>
-	<string>ifl</string>
+	<string>whf</string>
 	<key>uuid</key>
-	<string>0A8A3D48-C586-4D0E-B164-2E8CFD311A63</string>
+	<string>B9383AE5-7B15-4FB1-8933-CC091DC64177</string>
 </dict>
 </plist>
