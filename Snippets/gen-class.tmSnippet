@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(gen-class${34/((.|\n)+)/(?1:
+	<string>(gen-class${50/((.|\n)+)/(?1:
 ;;  Removing last comment will remove all.
 ;;  
 ;;  In all subsequent sections taking types, the primitive types can be
@@ -13,28 +13,28 @@
 ;;  
 ;;  Options should be a set of key value\/pairs, all \:except for name are optional\:
 ;;  )/}
-	:name ${1:package.qualified.name}${34/((.|\n)+)/(?1:
+	:name ${1:package.qualified.name}${50/((.|\n)+)/(?1:
 ;;  
 ;;  The package-qualified name of the class to be generated
 ;;  )/}${2:
-	:extends ${3:Aclass}${34/((.|\n)+)/(?1:
+	:extends ${3:Aclass}${50/((.|\n)+)/(?1:
 ;;  
 ;;  Specifies the superclass, the non-private methods of which will be
 ;;  overridden by the class. If not provided, defaults to Object.
 ;;  )/}}${4:
-	:implements [${5:Interfaces}]${34/((.|\n)+)/(?1:
+	:implements [${5:Interfaces}]${50/((.|\n)+)/(?1:
 ;;  
 ;;  One or more interfaces, the methods of which will be implemented by.
 ;;  the class
 ;;  )/}}${6:
-	:init ${7:name}${34/((.|\n)+)/(?1:
+	:init ${7:name}${50/((.|\n)+)/(?1:
 ;;  
 ;;  If supplied, names a function that will be called with the arguments
 ;;  to the constructor. Must return [ [superclass-constructor-args] state]
 ;;  If not supplied, the constructor args are passed directly to
 ;;  the superclass constructor and the state will be nil
 ;;  )/}}${8:
-	:constructors {[${9:param.Types}] [${10:super.param.Types}]${11:, ...}\}${34/((.|\n)+)/(?1:
+	:constructors {[${9:param.Types}] [${10:super.param.Types}]${11:, ...}\}${50/((.|\n)+)/(?1:
 ;;  
 ;;  By default, constructors are created for the generated class which
 ;;  match the signature(s\) of the constructors for the superclass. This
@@ -43,7 +43,7 @@
 ;;  constructor signature. When you supply this, you must supply an \:init
 ;;  specifier. 
 ;;  )/}}${12:
-	:methods [[${13:name} [${14:param.Types}] ${15:return.Type}]${16:, ...}]${34/((.|\n)+)/(?1:
+	:methods [[${13:name} [${14:param.Types}] ${15:return.Type}]${16:, ...}]${50/((.|\n)+)/(?1:
 ;;  
 ;;  The generated class automatically defines all of the non-private
 ;;  methods of its superclasses\/interfaces. This parameter can be used
@@ -52,19 +52,19 @@
 ;;  signature's metadata. Do not repeat superclass\/interface signatures
 ;;  here.
 ;;  )/}}${17:
-	:main true${34/((.|\n)+)/(?1:
+	:main true${50/((.|\n)+)/(?1:
 ;;  
 ;;  If supplied and true, a static public main function will be generated. It will
 ;;  pass each string of the String[] argument as a separate argument to
 ;;  a function called (str prefix main\).
 ;;  )/}}${18:
-	:factory ${19:name}${34/((.|\n)+)/(?1:
+	:factory ${19:name}${50/((.|\n)+)/(?1:
 ;;  
 ;;  If supplied, a (set of\) public static factory function(s\) will be
 ;;  created with the given name, and the same signature(s\) as the
 ;;  constructor(s\).
 ;;  )/}}${20:
-	:state ${21:name}${34/((.|\n)+)/(?1:
+	:state ${21:name}${50/((.|\n)+)/(?1:
 ;;  
 ;;  If supplied, a public final instance field with the given name will be
 ;;  created. You must supply an \:init function in order to provide a
@@ -72,7 +72,7 @@
 ;;  or agent, supporting the creation of Java objects with transactional
 ;;  or asynchronous mutation semantics.
 ;;  )/}}${22:
-	:exposes {${23:protected-field-name} {${24::get ${25:name}} ${26::set ${27:name}}\}${28:, ...}\}${34/((.|\n)+)/(?1:
+	:exposes {${23:protected-field-name} {${24::get ${25:name}} ${26::set ${27:name}}\}${28:, ...}\}${50/((.|\n)+)/(?1:
 ;;  
 ;;  Since the implementations of the methods of the generated class
 ;;  occur in Clojure functions, they have no access to the inherited
@@ -80,23 +80,29 @@
 ;;  generate public getter\/setter methods exposing the protected field(s\)
 ;;  for use in the implementation.
 ;;  )/}}${29:
-	:prefix "${30:string}"${34/((.|\n)+)/(?1:
+	:exposes-methods {${30:super-method-name} ${31:exposed-name}${32:, ...}\}${50/((.|\n)+)/(?1:
+;;  
+;;  It is sometimes necessary to call the superclass implementation of an
+;;  overridden method.  Those methods may be exposed and referred in 
+;;  the new method implementation by a local name.
+;;  )/}}${34:
+	:prefix "${35:string}"${50/((.|\n)+)/(?1:
 ;;  
 ;;  Default\: "-" Methods called e.g. Foo will be looked up in vars called
 ;;  prefixFoo in the implementing ns.
-;;  )/}}${31:
-	:impl-ns ${32:name}${34/((.|\n)+)/(?1:
+;;  )/}}${36:
+	:impl-ns ${37:name}${50/((.|\n)+)/(?1:
 ;;  
 ;;  Default\: the name of the current ns.
 ;;  Implementations of methods will be looked up in this namespace.
-;;  )/}}${33:
-	:load-impl-ns false${34/((.|\n)+)/(?1:
+;;  )/}}${38:
+	:load-impl-ns false${50/((.|\n)+)/(?1:
 ;;  
 ;;  Default\: true. Causes the static initializer for the generated class
 ;;  to reference the load code for the implementing namespace. Should be
 ;;  true when implementing-ns is the default, false if you intend to
 ;;  load the code via some other method.
-;;  )/}})${34:${35:${36:${37:${38:${39:${40:${41:
+;;  )/}})${50:${51:${52:${53:${54:${55:${56:${57:
 ;;  Remove this to clear previous comment
 ;;  From Clojure documentation
 ;;  Copyright (c) Rich Hickey. All rights reserved.}}}}}}}}$0</string>
