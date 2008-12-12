@@ -27,7 +27,7 @@
 ;;  One or more interfaces, the methods of which will be implemented by.
 ;;  the class
 ;;  )/}}${6:
-	:init ${7:name}${50/((.|\n)+)/(?1:
+	:init ${7:a-name}${50/((.|\n)+)/(?1:
 ;;  
 ;;  If supplied, names a function that will be called with the arguments
 ;;  to the constructor. Must return [ [superclass-constructor-args] state]
@@ -43,7 +43,7 @@
 ;;  constructor signature. When you supply this, you must supply an \:init
 ;;  specifier. 
 ;;  )/}}${12:
-	:methods [[${13:name} [${14:param.Types}] ${15:return.Type}]${16:, ...}]${50/((.|\n)+)/(?1:
+	:methods [[${13:a-name} [${14:param.Types}] ${15:return.Type}]${16:, ...}]${50/((.|\n)+)/(?1:
 ;;  
 ;;  The generated class automatically defines all of the non-private
 ;;  methods of its superclasses\/interfaces. This parameter can be used
@@ -58,13 +58,13 @@
 ;;  pass each string of the String[] argument as a separate argument to
 ;;  a function called (str prefix main\).
 ;;  )/}}${18:
-	:factory ${19:name}${50/((.|\n)+)/(?1:
+	:factory ${19:a-name}${50/((.|\n)+)/(?1:
 ;;  
 ;;  If supplied, a (set of\) public static factory function(s\) will be
 ;;  created with the given name, and the same signature(s\) as the
 ;;  constructor(s\).
 ;;  )/}}${20:
-	:state ${21:name}${50/((.|\n)+)/(?1:
+	:state ${21:a-name}${50/((.|\n)+)/(?1:
 ;;  
 ;;  If supplied, a public final instance field with the given name will be
 ;;  created. You must supply an \:init function in order to provide a
@@ -72,7 +72,7 @@
 ;;  or agent, supporting the creation of Java objects with transactional
 ;;  or asynchronous mutation semantics.
 ;;  )/}}${22:
-	:exposes {${23:protected-field-name} {${24::get ${25:name}} ${26::set ${27:name}}\}${28:, ...}\}${50/((.|\n)+)/(?1:
+	:exposes {${23:protected-field-name} {${24::get ${25:a-name}} ${26::set ${27:a-name}}\}${28:, ...}\}${50/((.|\n)+)/(?1:
 ;;  
 ;;  Since the implementations of the methods of the generated class
 ;;  occur in Clojure functions, they have no access to the inherited
@@ -91,7 +91,7 @@
 ;;  Default\: "-" Methods called e.g. Foo will be looked up in vars called
 ;;  prefixFoo in the implementing ns.
 ;;  )/}}${36:
-	:impl-ns ${37:name}${50/((.|\n)+)/(?1:
+	:impl-ns ${37:a-name}${50/((.|\n)+)/(?1:
 ;;  
 ;;  Default\: the name of the current ns.
 ;;  Implementations of methods will be looked up in this namespace.

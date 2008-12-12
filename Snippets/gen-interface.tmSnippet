@@ -22,7 +22,7 @@
 ;;  
 ;;  One or more interfaces, which will be extended by this interface.
 ;;  )/}}${12:
-	:methods [[${13:name} [${14:param.Types}] ${15:return.Type}]${16:, ...}]${34/((.|\n)+)/(?1:
+	:methods [[${13:a-name} [${14:param.Types}] ${15:return.Type}]${16:, ...}]${34/((.|\n)+)/(?1:
 ;;  
 ;;  This parameter is used to specify the signatures of the methods of
 ;;  the generated interface.  Do not repeat superinterface signatures
