@@ -2734,6 +2734,57 @@
 					<array>
 						<dict>
 							<key>begin</key>
+							<string>(?=([a-z]+\.)*[A-Z][a-zA-Z]*(\$[A-Z][a-zA-Z]*)?)</string>
+							<key>end</key>
+							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+							<key>name</key>
+							<string>storage.type.java.clojure</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#symbol</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+							<key>end</key>
+							<string>(?=\))</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#all</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#all</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=\()\s*((\.\.?)\s+(?=([a-z]+\.)*[A-Z][a-zA-Z]*(\$[A-Z][a-zA-Z]*)?))</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.clojure</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\))</string>
+					<key>name</key>
+					<string>meta.function.member_access_form.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
 							<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 							<key>end</key>
 							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
