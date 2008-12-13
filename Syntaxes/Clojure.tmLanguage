@@ -3110,7 +3110,9 @@
 					<string>constant.character.escape.clojure</string>
 				</dict>
 				<dict>
-					<key>captures</key>
+					<key>begin</key>
+					<string>(\:{1,2})(?=[a-zA-Z+!\-_?0-9*/.$=])</string>
+					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
@@ -3120,10 +3122,17 @@
 					</dict>
 					<key>comment</key>
 					<string>. is OK in symbol ?</string>
-					<key>match</key>
-					<string>(\:{1,2})([a-zA-Z+!\-_?0-9*/.$=]+)</string>
+					<key>end</key>
+					<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 					<key>name</key>
 					<string>constant.string.symbole.clojure</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#symbol</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>begin</key>
