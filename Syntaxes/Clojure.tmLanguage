@@ -3245,9 +3245,9 @@
 		<key>symbol_java_class</key>
 		<dict>
 			<key>begin</key>
-			<string>(?=([a-z]+\.)*[A-Z][a-zA-Z]*)</string>
+			<string>(?=([a-z]+\.)*[A-Z][a-zA-Z]*(\$[A-Z][a-zA-Z]*)?)</string>
 			<key>end</key>
-			<string>(?![a-zA-Z.])</string>
+			<string>(?![a-zA-Z.$])</string>
 			<key>name</key>
 			<string>entity.other.inherited-class.java.clojure</string>
 			<key>patterns</key>
