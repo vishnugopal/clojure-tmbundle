@@ -1807,6 +1807,10 @@
 					<array>
 						<dict>
 							<key>include</key>
+							<string>#sexpr_special</string>
+						</dict>
+						<dict>
+							<key>include</key>
 							<string>#all</string>
 						</dict>
 					</array>
