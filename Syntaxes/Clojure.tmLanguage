@@ -3121,7 +3121,7 @@
 					<key>comment</key>
 					<string>. is OK in symbol ?</string>
 					<key>match</key>
-					<string>(\:)([a-zA-Z+!\-_?0-9*/.$=]+)</string>
+					<string>(\:{1,2})([a-zA-Z+!\-_?0-9*/.$=]+)</string>
 					<key>name</key>
 					<string>constant.string.symbole.clojure</string>
 				</dict>
