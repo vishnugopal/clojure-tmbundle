@@ -2466,7 +2466,7 @@
 		<key>parameters_variable</key>
 		<dict>
 			<key>begin</key>
-			<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
+			<string>(?=[a-zA-Z+!\-_?0-9*~@'`/.$=])</string>
 			<key>comment</key>
 			<string>symbol matching TODO:operator number =&gt; error ?</string>
 			<key>end</key>
