@@ -1212,7 +1212,7 @@
 											<array>
 												<dict>
 													<key>include</key>
-													<string>#symbol_java_class</string>
+													<string>#symbol_java_inherited_class</string>
 												</dict>
 												<dict>
 													<key>include</key>
@@ -1331,7 +1331,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#symbol_java_class</string>
+							<string>#symbol_java_inherited_class</string>
 						</dict>
 					</array>
 				</dict>
@@ -1354,7 +1354,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#symbol_java_class</string>
+							<string>#symbol_java_inherited_class</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -1635,7 +1635,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#symbol_java_class</string>
+							<string>#symbol_java_inherited_class</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -2658,7 +2658,7 @@
 							<array>
 								<dict>
 									<key>include</key>
-									<string>#symbol_java_class</string>
+									<string>#symbol_java_inherited_class</string>
 								</dict>
 								<dict>
 									<key>include</key>
@@ -2889,13 +2889,11 @@
 							<string>(?=[a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
 							<key>end</key>
 							<string>(?![a-zA-Z+!\-_?0-9*~#@'`/.$=])</string>
-							<key>name</key>
-							<string>storage.type.java.clojure</string>
 							<key>patterns</key>
 							<array>
 								<dict>
 									<key>include</key>
-									<string>#symbol</string>
+									<string>#symbol_java_class_form_body</string>
 								</dict>
 							</array>
 						</dict>
@@ -3310,10 +3308,12 @@
 		<dict>
 			<key>begin</key>
 			<string>(?=([a-z]+\.)*[A-Z][a-zA-Z]*(\$[A-Z][a-zA-Z]*)?)</string>
+			<key>comment</key>
+			<string>TODO : use it</string>
 			<key>end</key>
 			<string>(?![a-zA-Z.$])</string>
 			<key>name</key>
-			<string>entity.other.inherited-class.java.clojure</string>
+			<string>storage.type.java.clojure</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -3335,7 +3335,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#symbol_java_class</string>
+							<string>#symbol_java_inherited_class</string>
 						</dict>
 					</array>
 				</dict>
@@ -3355,6 +3355,22 @@
 				<dict>
 					<key>include</key>
 					<string>#all</string>
+				</dict>
+			</array>
+		</dict>
+		<key>symbol_java_inherited_class</key>
+		<dict>
+			<key>begin</key>
+			<string>(?=([a-z]+\.)*[A-Z][a-zA-Z]*(\$[A-Z][a-zA-Z]*)?)</string>
+			<key>end</key>
+			<string>(?![a-zA-Z.$])</string>
+			<key>name</key>
+			<string>entity.other.inherited-class.java.clojure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#symbol</string>
 				</dict>
 			</array>
 		</dict>
