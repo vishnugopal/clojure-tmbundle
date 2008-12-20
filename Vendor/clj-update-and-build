@@ -16,20 +16,19 @@ function svn_update {
 		cat <<-MSG
 			
 			=====================================================
-			== Update $1 from sourceforge svn
+			== Update $1 from googlecode svn
 			=====================================================
 			
 MSG
 		cd "$1"
 		svn \
 			--non-interactive \
-			--config-dir "$script_path_only/svn_sourceforge_net" \
 			up
 	else
 		cat <<-MSG
 			
 			=====================================================
-			== CheckOut $1 from sourceforge svn
+			== CheckOut $1 from googlecode svn
 			=====================================================
 			
 MSG
@@ -38,15 +37,14 @@ MSG
 		fi
 		svn \
 			--non-interactive \
-			--config-dir "$script_path_only/svn_sourceforge_net" \
-			co https://$1.svn.sourceforge.net/svnroot/$1/trunk/ $1 &&
+			co http://$1.googlecode.com/svn/trunk $1 &&
 		cd "$1"
 	fi
 ) || (
 cat <<-MSG
 	
 	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	!! Failed update of $1 from sourceforge svn
+	!! Failed update of $1 from googlecode svn
 	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	
 MSG
@@ -133,7 +131,28 @@ exit 1
 fi
 }
 
+function remove_sourceforge {
 (
+	if [[ -d "clojure/.svn" ]]; then
+		cd clojure
+		if (svn info | grep sourceforge ); then
+			cd ..
+			rm -rf clojure clojure-contrib svn_sourceforge_net
+cat <<-MSG
+	
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	!! Remove sourceforge repository
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+MSG
+		fi
+	fi
+)
+}
+
+
+(
+remove_sourceforge &&
 svn_update clojure &&
 svn_update clojure-contrib &&
 build clojure &&

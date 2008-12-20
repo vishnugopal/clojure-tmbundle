@@ -22,7 +22,7 @@ Run this:
 
 An update script will :
 
-* Get Clojure and Clojure-contrib from sourceforge.
+* Get Clojure and Clojure-contrib from GoogleCode.
 * Get library for generating off-line documentation from github.
 * Build Clojure and documentation.
 
