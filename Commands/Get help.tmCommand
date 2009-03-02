@@ -19,7 +19,7 @@ Clojure::Mate.get_help</string>
 	<key>name</key>
 	<string>Get help</string>
 	<key>output</key>
-	<string>showAsHTML</string>
+	<string>showAsTooltip</string>
 	<key>scope</key>
 	<string>source.clojure</string>
 	<key>uuid</key>

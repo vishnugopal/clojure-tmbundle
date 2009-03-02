@@ -13,6 +13,8 @@ module Clojure
   require 'clojure/core_ext'
   
   module Mate
+    TEXT_WRAP_LINE_LENGTH = 40
+        
     def run_current_form_or_line
       repl = get_repl
       
@@ -34,6 +36,10 @@ module Clojure
       
       to_run = pick_form(forms, offset) || ENV["TM_CURRENT_LINE"]
       result = repl.evaluate(to_run)
+            
+      (1..(result.length/TEXT_WRAP_LINE_LENGTH)).each do |counter|
+        result[(counter * TEXT_WRAP_LINE_LENGTH)..0] = "\n"
+      end
       
       show_text(result)
     end

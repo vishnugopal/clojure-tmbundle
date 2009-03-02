@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(defstruct ${0:name &amp;keys})</string>
+	<string>(defstruct ${1:name} ${0:&amp;keys})</string>
 	<key>name</key>
 	<string>defstruct</string>
 	<key>scope</key>
